@@ -1,0 +1,20 @@
+<odoo>
+<data>
+    <menuitem id="menu_odoomancy_root" name="odoomancy"/>
+
+    <menuitem id="menu_odoomancy_campaign"
+              name="Campaigns"
+              parent="menu_odoomancy_root"
+              action="action_odoomancy_campaign"/>
+
+    <menuitem id="menu_odoomancy_character"
+              name="Characters"
+              parent="menu_odoomancy_root"
+              action="action_odoomancy_character"/>
+
+    <menuitem id="menu_odoomancy_item"
+              name="Items"
+              parent="menu_odoomancy_root"
+              action="action_odoomancy_item"/>
+</data>
+</odoo>

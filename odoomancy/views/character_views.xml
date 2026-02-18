@@ -1,0 +1,73 @@
+<odoo>
+
+    <!-- ACTION -->
+    <record id="action_odoomancy_character" model="ir.actions.act_window">
+        <field name="name">Characters</field>
+        <field name="res_model">odoomancy.character</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- list -->
+    <record id="view_odoomancy_character_list" model="ir.ui.view">
+        <field name="name">odoomancy.character.list</field>
+        <field name="model">odoomancy.character</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="campaign_id"/>
+                <field name="player_id"/>
+                <field name="level"/>
+                <field name="hp_current"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM -->
+    <record id="view_odoomancy_character_form" model="ir.ui.view">
+        <field name="name">odoomancy.character.form</field>
+        <field name="model">odoomancy.character</field>
+        <field name="arch" type="xml">
+            <form string="Character">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="campaign_id"/>
+                        <field name="player_id"/>
+                        <field name="race"/>
+                        <field name="character_class"/>
+                        <field name="level"/>
+                        <field name="state"/>
+                    </group>
+
+                    <group string="Health points">
+                        <field name="hp_current"/>
+                        <field name="hp_max"/>
+                    </group>
+
+                    <group string="Attributes">
+                        <field name="strength"/>
+                        <field name="dexterity"/>
+                        <field name="constitution"/>
+                        <field name="intelligence"/>
+                        <field name="wisdom"/>
+                        <field name="charisma"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Inventory">
+                            <field name="item_ids">
+                                <list editable="bottom">
+                                    <field name="item_id"/>
+                                    <field name="quantity"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
