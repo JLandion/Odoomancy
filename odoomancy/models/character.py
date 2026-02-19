@@ -42,4 +42,19 @@ class Character(models.Model):
         string='Inventory'
     )
 
+    class_id = fields.Many2one("odoomancy.class")
+    race_id = fields.Many2one("odoomancy.race")
+
+    spell_line_ids = fields.One2many(
+        "odoomancy.character.spell",
+        "character_id",
+        string="Spells"
+    )
+
+    feat_line_ids = fields.One2many(
+        "odoomancy.character.feat",
+        "character_id",
+        string="Feats"
+    )
+
 

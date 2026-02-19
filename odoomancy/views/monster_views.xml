@@ -1,0 +1,47 @@
+<odoo>
+    <!-- MONSTER LIST -->
+<record id="view_odoomancy_monster_list" model="ir.ui.view">
+    <field name="name">odoomancy.monster.list</field>
+    <field name="model">odoomancy.monster</field>
+    <field name="arch" type="xml">
+        <list string="Monsters">
+            <field name="name"/>
+            <field name="challenge_rating"/>
+            <field name="hit_points"/>
+        </list>
+    </field>
+</record>
+
+<!-- MONSTER FORM -->
+<record id="view_odoomancy_monster_form" model="ir.ui.view">
+    <field name="name">odoomancy.monster.form</field>
+    <field name="model">odoomancy.monster</field>
+    <field name="arch" type="xml">
+        <form string="Monster">
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="challenge_rating"/>
+                    </group>
+                    <group>
+                        <field name="hit_points"/>
+                        <field name="armor_class"/>
+                    </group>
+                </group>
+
+                <notebook>
+                    <page string="Abilities">
+                        <field name="abilities"/>
+                    </page>
+
+                    <page string="Spells">
+                        <field name="spell_ids"/>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+</odoo>

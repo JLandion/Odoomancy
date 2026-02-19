@@ -1,0 +1,41 @@
+<odoo>
+    <!-- SPELL LIST -->
+<record id="view_odoomancy_spell_list" model="ir.ui.view">
+    <field name="name">odoomancy.spell.list</field>
+    <field name="model">odoomancy.spell</field>
+    <field name="arch" type="xml">
+        <list string="Spells">
+            <field name="name"/>
+            <field name="level"/>
+            <field name="school"/>
+            <field name="mana_cost"/>
+        </list>
+    </field>
+</record>
+
+<!-- SPELL FORM -->
+<record id="view_odoomancy_spell_form" model="ir.ui.view">
+    <field name="name">odoomancy.spell.form</field>
+    <field name="model">odoomancy.spell</field>
+    <field name="arch" type="xml">
+        <form string="Spell">
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="level"/>
+                        <field name="school"/>
+                        <field name="mana_cost"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Description">
+                        <field name="description"/>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+</odoo>
