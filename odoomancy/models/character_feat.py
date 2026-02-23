@@ -17,11 +17,3 @@ class OdoomancyCharacterFeat(models.Model):
     )
 
     acquired_level = fields.Integer()
-
-    _sql_constraints = [
-        (
-            "character_feat_unique",
-            "unique(character_id, feat_id)",
-            "This feat is already assigned to the character."
-        )
-    ]

@@ -20,11 +20,3 @@ class OdoomancyEncounterMonster(models.Model):
 
     hp_current = fields.Integer()
     initiative = fields.Integer()
-
-    _sql_constraints = [
-        (
-            "encounter_monster_unique",
-            "unique(encounter_id, monster_id)",
-            "This monster is already added to the encounter."
-        )
-    ]

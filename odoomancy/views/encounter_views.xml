@@ -1,43 +1,41 @@
-<!-- ENCOUNTER LIST -->
 <odoo>
-<record id="view_odoomancy_encounter_list" model="ir.ui.view">
-    <field name="name">odoomancy.encounter.list</field>
-    <field name="model">odoomancy.encounter</field>
-    <field name="arch" type="xml">
-        <list string="Encounters">
-            <field name="name"/>
-            <field name="campaign_id"/>
-            <field name="state"/>
-        </list>
-    </field>
-</record>
+    <record id="view_odoomancy_encounter_list" model="ir.ui.view">
+        <field name="name">odoomancy.encounter.list</field>
+        <field name="model">odoomancy.encounter</field>
+        <field name="arch" type="xml">
+            <list string="Encounters">
+                <field name="name"/>
+                <field name="campaign_id"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
 
-<!-- ENCOUNTER FORM -->
-<record id="view_odoomancy_encounter_form" model="ir.ui.view">
-    <field name="name">odoomancy.encounter.form</field>
-    <field name="model">odoomancy.encounter</field>
-    <field name="arch" type="xml">
-        <form string="Encounter">
-            <sheet>
-                <group>
+    <record id="view_odoomancy_encounter_form" model="ir.ui.view">
+        <field name="name">odoomancy.encounter.form</field>
+        <field name="model">odoomancy.encounter</field>
+        <field name="arch" type="xml">
+            <form string="Encounter">
+                <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="campaign_id"/>
-                        <field name="state"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="campaign_id"/>
+                            <field name="state"/>
+                        </group>
                     </group>
-                </group>
 
-                <notebook>
-                    <page string="Monsters">
-                        <field name="monster_line_ids"/>
-                    </page>
+                    <notebook>
+                        <page string="Monsters">
+                            <field name="monster_line_ids"/>
+                        </page>
 
-                    <page string="Description">
-                        <field name="description"/>
-                    </page>
-                </notebook>
-            </sheet>
-        </form>
-    </field>
-</record>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>

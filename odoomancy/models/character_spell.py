@@ -18,11 +18,3 @@ class OdoomancyCharacterSpell(models.Model):
 
     prepared = fields.Boolean(default=False)
     uses_remaining = fields.Integer()
-
-    _sql_constraints = [
-        (
-            "character_spell_unique",
-            "unique(character_id, spell_id)",
-            "This spell is already assigned to the character."
-        )
-    ]

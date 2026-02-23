@@ -1,6 +1,8 @@
 from odoo import fields, models
 class CampaignLog(models.Model):
     _name = 'odoomancy.campaign.log'
+    _description = 'Campaign Log'
+
     name = fields.Char(required=True)
 
     campaign_id = fields.Many2one(

@@ -12,11 +12,10 @@ class Character(models.Model):
 
     player_id = fields.Many2one(
         'res.users',
-        string='Character',
+        string='Player',
         required=True
     )
 
-    race = fields.Char()
     character_class = fields.Char()
     level = fields.Integer(default=1)
 

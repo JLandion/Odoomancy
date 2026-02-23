@@ -12,16 +12,23 @@ class OdoomancyMonster(models.Model):
     size = fields.Char()
     alignment = fields.Char()
 
-    hp_base = fields.Integer(string="Base HP")
+    hit_points = fields.Integer(string="Hit points")
     armor_class = fields.Integer()
 
     speed = fields.Char()
-
+    type = fields.Char()
     strength = fields.Integer(default=10)
     dexterity = fields.Integer(default=10)
     constitution = fields.Integer(default=10)
     intelligence = fields.Integer(default=10)
     wisdom = fields.Integer(default=10)
     charisma = fields.Integer(default=10)
+    spell_ids = fields.Many2many(
+        "odoomancy.spell",
+        "odoomancy_spell_monster_rel",
+        "class_id",
+        "spell_id",
+        string="Available Spells"
+    )
 
     description = fields.Html()

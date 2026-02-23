@@ -1,13 +1,10 @@
 <odoo>
-
-    <!-- ACTION -->
     <record id="action_odoomancy_campaign" model="ir.actions.act_window">
         <field name="name">Campaigns</field>
         <field name="res_model">odoomancy.campaign</field>
         <field name="view_mode">list,form</field>
     </record>
 
-    <!-- list VIEW -->
     <record id="view_odoomancy_campaign_list" model="ir.ui.view">
         <field name="name">odoomancy.campaign.list</field>
         <field name="model">odoomancy.campaign</field>
@@ -22,7 +19,6 @@
         </field>
     </record>
 
-    <!-- FORM VIEW -->
     <record id="view_odoomancy_campaign_form" model="ir.ui.view">
         <field name="name">odoomancy.campaign.form</field>
         <field name="model">odoomancy.campaign</field>
