@@ -25,30 +25,53 @@ class OdoomancyMonsterImporter(models.TransientModel):
     def action_import_monsters(self):
         api = DndApiService()
 
-        created = 0
-        updated = 0
+        monster_list = api.list_monsters()
+        results = monster_list.get("results", [])
+
+        indexes = [m["index"] for m in results]
+
+        existing_monsters = self.env["odoomancy.monster"].search(
+            [("name", "in", indexes)]
+        )
+        existing_by_index = {m.name: m for m in existing_monsters}
+
+        to_create = []
+        to_update = []
         errors = 0
 
-        monster_list = api.list_monsters()
-
-        for monster_ref in monster_list.get("results", [])[:20]:
+        for monster_ref in results:
             try:
                 monster_data = api.get_monster(monster_ref["index"])
-                result = self._upsert_monster(monster_data)
 
-                if result == "created":
-                    created += 1
-                elif result == "updated":
-                    updated += 1
+                vals = {
+                    "api_index": monster_ref.get("index"),
+                    "name": monster_data.get("name"),
+                    "size": monster_data.get("size"),
+                    "type": monster_data.get("type"),
+                    "alignment": monster_data.get("alignment"),
+                    "hit_points": monster_data.get("hit_points"),
+                    "challenge_rating": monster_data.get("challenge_rating"),
+                }
+
+                existing = existing_by_index.get(monster_ref["index"])
+
+                if existing:
+                    if self.import_mode == "upsert":
+                        to_update.append((existing, vals))
+                else:
+                    to_create.append(vals)
 
             except Exception:
                 errors += 1
-                _logger.exception(
-                    "Error importing monster %s", monster_ref.get("index")
-                )
+                _logger.exception("Error importing monster %s", monster_ref.get("index"))
 
-        self.created_count = created
-        self.updated_count = updated
+        self.env["odoomancy.monster"].create(to_create)
+
+        for record, vals in to_update:
+            record.write(vals)
+
+        self.created_count = len(to_create)
+        self.updated_count = len(to_update)
         self.error_count = errors
 
         return {
@@ -58,29 +81,3 @@ class OdoomancyMonsterImporter(models.TransientModel):
             "res_id": self.id,
             "target": "new",
         }
-
-    def _upsert_monster(self, monster_data):
-        Monster = self.env["odoomancy.monster"]
-
-        existing = Monster.search(
-            [("name", "=", monster_data["index"])],
-            limit=1,
-        )
-
-        vals = {
-            "name": monster_data.get("name"),
-            "size": monster_data.get("size"),
-            "type": monster_data.get("type"),
-            "alignment": monster_data.get("alignment"),
-            "hit_points": monster_data.get("hit_points"),
-            "challenge_rating": monster_data.get("challenge_rating"),
-        }
-
-        if existing:
-            if self.import_mode == "upsert":
-                existing.write(vals)
-                return "updated"
-            return "skipped"
-
-        Monster.create(vals)
-        return "created"
