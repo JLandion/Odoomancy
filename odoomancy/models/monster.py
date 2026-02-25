@@ -3,7 +3,7 @@ from odoo import models, fields
 
 class OdoomancyMonster(models.Model):
     _name = "odoomancy.monster"
-    _description = "Monster"
+    _description = "Monsters"
 
     name = fields.Char(required=True)
 

@@ -17,12 +17,10 @@
                 </group>
 
                 <footer>
-                    <button
-                        name="action_import_monsters"
-                        string="Import"
-                        type="object"
-                        class="btn-primary"
-                    />
+                    <button name="action_import"
+                            string="Import"
+                            type="object"
+                            class="btn-primary"/>
                     <button string="Close" special="cancel"/>
                 </footer>
             </form>
