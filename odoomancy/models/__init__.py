@@ -2,12 +2,13 @@ from . import campaign
 from . import campaign_log
 from . import character
 from . import character_feat
-from . import character_item
+from . import character_equipment
 from . import character_spell
 from . import encounter
 from . import encounter_monster
 from . import feat
-from . import item
+from . import equipment
+from . import equipment_category
 from . import monster
 from . import odoomancy_class
 from . import race

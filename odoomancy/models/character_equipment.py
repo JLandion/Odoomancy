@@ -1,6 +1,6 @@
 from odoo import fields, models
-class CharacterItem(models.Model):
-    _name = 'odoomancy.character.item'
+class CharacterEquipment(models.Model):
+    _name = 'odoomancy.character.equipment'
     _description = 'Character Inventory'
 
     character_id = fields.Many2one(
@@ -9,8 +9,8 @@ class CharacterItem(models.Model):
         ondelete='cascade'
     )
 
-    item_id = fields.Many2one(
-        'odoomancy.item',
+    equipment_id = fields.Many2one(
+        'odoomancy.equipment',
         required=True
     )
 

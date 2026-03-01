@@ -15,3 +15,9 @@ class DndApiService:
 
     def get_monster(self, index):
         return self._get(f"monsters/{index}")
+
+    def list_equipment(self):
+        return self._get("equipment")
+
+    def _get_equipment(self, index):
+        return self._get(f"equipment/{index}")

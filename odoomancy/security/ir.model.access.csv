@@ -2,8 +2,8 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 odoomancy.access_odoomancy_campaign,access_odoomancy_campaign,odoomancy.model_odoomancy_campaign,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_campaign_log,access_odoomancy_campaign_log,odoomancy.model_odoomancy_campaign_log,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_character,access_odoomancy_character,odoomancy.model_odoomancy_character,base.group_user,1,1,1,1
-odoomancy.access_odoomancy_character_item,access_odoomancy_character_item,odoomancy.model_odoomancy_character_item,base.group_user,1,1,1,1
-odoomancy.access_odoomancy_item,access_odoomancy_item,odoomancy.model_odoomancy_item,base.group_user,1,1,1,1
+odoomancy.access_odoomancy_character_equipment,access_odoomancy_character_equipment,odoomancy.model_odoomancy_character_equipment,base.group_user,1,1,1,1
+odoomancy.access_odoomancy_equipment,access_odoomancy_equipment,odoomancy.model_odoomancy_equipment,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_character_feat,access_odoomancy_character_feat,odoomancy.model_odoomancy_character_feat,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_character_spell,access_odoomancy_character_spell,odoomancy.model_odoomancy_character_spell,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_encounter,access_odoomancy_encounter,odoomancy.model_odoomancy_encounter,base.group_user,1,1,1,1

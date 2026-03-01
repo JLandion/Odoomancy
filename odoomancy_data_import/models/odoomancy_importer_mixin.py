@@ -32,7 +32,7 @@ class OdoomancyImporterMixin(models.AbstractModel):
         raise NotImplementedError()
 
     def _get_api_detail(self, api, ref):
-        """Must return the details of an item"""
+        """Must return the details of an equipment"""
         raise NotImplementedError()
 
     def _map_api_to_vals(self, data):
@@ -87,6 +87,7 @@ class OdoomancyImporterMixin(models.AbstractModel):
         self.created_count = len(to_create)
         self.updated_count = len(to_update)
         self.error_count = errors
+        self.env.cr.commit()
 
         return self._reload_wizard()
 

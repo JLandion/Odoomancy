@@ -35,8 +35,8 @@ class Character(models.Model):
     wisdom = fields.Integer(default=10)
     charisma = fields.Integer(default=10)
 
-    item_ids = fields.One2many(
-        'odoomancy.character.item',
+    equipment_ids = fields.One2many(
+        'odoomancy.character.equipment',
         'character_id',
         string='Inventory'
     )
