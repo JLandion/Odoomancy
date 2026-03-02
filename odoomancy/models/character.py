@@ -1,5 +1,62 @@
-from odoo import models, fields, api
-class Character(models.Model):
+from odoo import models, fields
+
+
+class OdoomancyCharacterFeat(models.Model):
+    _name = "odoomancy.character.feat"
+    _description = "Character Feat"
+
+    character_id = fields.Many2one(
+        "odoomancy.character",
+        required=True,
+        ondelete="cascade"
+    )
+
+    feat_id = fields.Many2one(
+        "odoomancy.feat",
+        required=True
+    )
+
+    acquired_level = fields.Integer()
+
+
+class CharacterEquipment(models.Model):
+    _name = 'odoomancy.character.equipment'
+    _description = 'Character Inventory'
+
+    character_id = fields.Many2one(
+        'odoomancy.character',
+        required=True,
+        ondelete='cascade'
+    )
+
+    equipment_id = fields.Many2one(
+        'odoomancy.equipment',
+        required=True
+    )
+
+    quantity = fields.Integer(default=1)
+
+
+class OdoomancyCharacterSpell(models.Model):
+    _name = "odoomancy.character.spell"
+    _description = "Character Spell"
+
+    character_id = fields.Many2one(
+        "odoomancy.character",
+        required=True,
+        ondelete="cascade"
+    )
+
+    spell_id = fields.Many2one(
+        "odoomancy.spell",
+        required=True
+    )
+
+    prepared = fields.Boolean(default=False)
+    uses_remaining = fields.Integer()
+
+
+class OdoomancyCharacter(models.Model):
     _name = 'odoomancy.character'
     _description = 'Character'
     name = fields.Char(required=True)
@@ -35,8 +92,8 @@ class Character(models.Model):
     wisdom = fields.Integer(default=10)
     charisma = fields.Integer(default=10)
 
-    item_ids = fields.One2many(
-        'odoomancy.character.item',
+    equipment_ids = fields.One2many(
+        'odoomancy.character.equipment',
         'character_id',
         string='Inventory'
     )

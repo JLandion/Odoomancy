@@ -12,10 +12,10 @@
                   parent="menu_odoomancy_root"
                   action="action_odoomancy_character"/>
 
-        <menuitem id="menu_odoomancy_item"
-                  name="Items"
+        <menuitem id="menu_odoomancy_equipment"
+                  name="Equipment"
                   parent="menu_odoomancy_root"
-                  action="action_odoomancy_item"/>
+                  action="action_odoomancy_equipment"/>
 
         <menuitem id="menu_odoomancy_monster"
               name="Monsters"

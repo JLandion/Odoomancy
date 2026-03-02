@@ -5,6 +5,7 @@ class OdoomancyMonster(models.Model):
     _name = "odoomancy.monster"
     _description = "Monsters"
 
+    api_index = fields.Char()
     name = fields.Char(required=True)
 
     challenge_rating = fields.Float(string="CR")
