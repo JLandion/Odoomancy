@@ -1,5 +1,5 @@
 from odoo import fields, models
-class CampaignLog(models.Model):
+class OdoomancyCampaignLog(models.Model):
     _name = 'odoomancy.campaign.log'
     _description = 'Campaign Log'
 

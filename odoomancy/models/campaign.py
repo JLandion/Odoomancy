@@ -1,6 +1,6 @@
 from odoo import models, fields, api
 
-class Campaign(models.Model):
+class OdoomancyCampaign(models.Model):
     _name = 'odoomancy.campaign'
     _description = 'Campaign'
 

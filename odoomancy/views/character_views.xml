@@ -53,9 +53,9 @@
 
                     <notebook>
                         <page string="Inventory">
-                            <field name="item_ids">
+                            <field name="equipment_ids">
                                 <list editable="bottom">
-                                    <field name="item_id"/>
+                                    <field name="equipment_id"/>
                                     <field name="quantity"/>
                                 </list>
                             </field>
