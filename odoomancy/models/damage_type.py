@@ -6,5 +6,5 @@ class OdoomancyDamageType(models.Model):
     _order = "name"
 
     name = fields.Char(required=True)
-    index = fields.Char(required=True, index=True)
+    api_index = fields.Char(required=True, index=True)
 
