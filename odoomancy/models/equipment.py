@@ -54,12 +54,16 @@ class OdoomancyEquipment(models.Model):
 
     # TOOLS
     tool_category = fields.Selection([
-        ('artisans tools', "Artisan's Tools"),
+        ('artisans-tools', "Artisan's Tools"),
+        ('gaming-sets', "Gaming Sets"),
+        ('musical-instruments', "Musical Instruments"),
+        ('other-tools', "Other Tools"),
     ])
 
-    #WEAPONS
+    # WEAPONS
     weapon_category = fields.Selection([
-        ('martial', 'Martial')
+        ('simple', 'Simple'),
+        ('martial', 'Martial'),
     ])
     weapon_range = fields.Selection([
         ('melee', 'Melee'),
@@ -77,8 +81,7 @@ class OdoomancyEquipment(models.Model):
         ('heavy', 'Heavy'),
         ('shield', 'Shield')
     ])
+    armor_str_minimum = fields.Integer()
     armor_class_base = fields.Integer()
     armor_dex_bonus = fields.Boolean()
     armor_max_bonus = fields.Integer()
-
-
