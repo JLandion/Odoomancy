@@ -7,7 +7,7 @@
             <list string="Spells">
                 <field name="name"/>
                 <field name="level"/>
-                <field name="school"/>
+                <field name="magic_school_id"/>
             </list>
         </field>
     </record>
@@ -22,7 +22,7 @@
                         <group>
                             <field name="name"/>
                             <field name="level"/>
-                            <field name="school"/>
+                            <field name="magic_school_id"/>
                         </group>
                     </group>
                     <notebook>

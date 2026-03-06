@@ -85,6 +85,7 @@ class OdoomancyCharacter(models.Model):
         ('retired', 'Retired')
     ], default='active')
 
+    # TODO: Consider replacing with ability_score
     strength = fields.Integer(default=10)
     dexterity = fields.Integer(default=10)
     constitution = fields.Integer(default=10)
