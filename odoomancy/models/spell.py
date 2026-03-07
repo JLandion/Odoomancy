@@ -18,7 +18,18 @@ class OdoomancySpellComponent(models.Model):
     name = fields.Char(required=True)
     code = fields.Char(required=True)
 
+class OdoomancySpellSlot(models.Model):
+    _name = "odoomancy.spell.slot"
+    _description = "Spell Slot"
+    _order = "level"
 
+    name = fields.Char(required=True)
+    level = fields.Integer(required=True)
+    value = fields.Char(required=True)
+    type = fields.Selection([
+        ("damage", "Damage"),
+        ("heal", "Heal"),
+    ], required=True)
 
 class OdoomancySpellDamage(models.Model):
     _name = "odoomancy.spell.damage"
@@ -76,6 +87,22 @@ class OdoomancySpell(models.Model):
         ("half", "Half"),
         ("other", "Other"),
     ])
+
+    damage_at_slot_ids = fields.Many2many(
+        "odoomancy.spell.slot",
+        relation="odoomancy_spell_damage_slot_rel",
+        column1="spell_id",
+        column2="slot_id",
+        domain=[('type', '=', 'damage')]
+    )
+
+    heal_at_slot_ids = fields.Many2many(
+        "odoomancy.spell.slot",
+        relation="odoomancy_spell_heal_slot_rel",
+        column1="spell_id",
+        column2="slot_id",
+        domain=[('type', '=', 'heal')]
+    )
 
     range = fields.Text()
 

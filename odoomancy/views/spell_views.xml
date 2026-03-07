@@ -1,5 +1,14 @@
 <odoo>
 
+    <!-- Action -->
+    <record id="action_odoomancy_spell" model="ir.actions.act_window">
+        <field name="name">Spells</field>
+        <field name="res_model">odoomancy.spell</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_odoomancy_spell_list"/>
+    </record>
+
+    <!-- Views -->
     <record id="view_odoomancy_spell_list" model="ir.ui.view">
         <field name="name">odoomancy.spell.list</field>
         <field name="model">odoomancy.spell</field>
@@ -7,7 +16,11 @@
             <list string="Spells">
                 <field name="name"/>
                 <field name="level"/>
-                <field name="magic_school_id"/>
+                <field name="casting_time"/>
+                <field name="range"/>
+                <field name="duration"/>
+                <field name="ritual"/>
+                <field name="concentration"/>
             </list>
         </field>
     </record>
@@ -22,12 +35,40 @@
                         <group>
                             <field name="name"/>
                             <field name="level"/>
-                            <field name="magic_school_id"/>
+                            <field name="casting_time"/>
+                            <field name="range"/>
+                            <field name="duration"/>
+                            <field name="ritual"/>
+                            <field name="concentration"/>
+                            <!--field name="verbal"/>
+                            <field name="somatic"/-->
+                            <field name="material"/>
+                            <!--field name="material_component"/>
+                            <field name="attack_type"/-->
+                            <field name="damage_type_id"/>
+                        </group>
+                        <group>
+                            <!--field name="area_of_effect_size"/>
+                            <field name="area_of_effect_type"/-->
+                            <field name="class_ids"/>
+                            <field name="damage_at_slot_ids" widget="one2many_list">
+                                <list editable="bottom">
+                                    <field name="level"/>
+                                    <field name="value" string="damage"/>
+                                </list>
+                            </field>
+                            <field name="heal_at_slot_ids" widget="one2many_list">
+                                <list editable="bottom">
+                                    <field name="level"/>
+                                    <field name="value" string="dice"/>
+                                </list>
+                            </field>
                         </group>
                     </group>
                     <notebook>
                         <page string="Description">
                             <field name="description"/>
+                            <field name="higher_level_description"/>
                         </page>
                     </notebook>
                 </sheet>
