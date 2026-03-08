@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_spells_importer_form" model="ir.ui.view">
+        <field name="name">odoomancy.spells.importer.form</field>
+        <field name="model">odoomancy.spells.importer</field>
+        <field name="arch" type="xml">
+            <form string="Import Spells">
+                <group>
+                    <field name="import_mode"/>
+                </group>
+
+                <group string="Results">
+                    <field name="created_count" readonly="1"/>
+                    <field name="updated_count" readonly="1"/>
+                    <field name="error_count" readonly="1"/>
+                </group>
+
+                <footer>
+                    <button name="action_import"
+                            string="Import"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_spells_importer" model="ir.actions.act_window">
+        <field name="name">Import Spells</field>
+        <field name="res_model">odoomancy.spells.importer</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_spells_importer"
+        name="Import Spells"
+        parent="menu_odoomancy_data_import_root"
+        action="action_spells_importer"
+        sequence="20"
+    />
+
+</odoo>
