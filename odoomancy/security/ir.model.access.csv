@@ -16,3 +16,4 @@ odoomancy.access_odoomancy_monster,access_odoomancy_monster,odoomancy.model_odoo
 odoomancy.access_odoomancy_class,access_odoomancy_class,odoomancy.model_odoomancy_class,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_race,access_odoomancy_race,odoomancy.model_odoomancy_race,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_spell,access_odoomancy_spell,odoomancy.model_odoomancy_spell,base.group_user,1,1,1,1
+odoomancy.access_odoomancy_spell_slot,access_odoomancy_spell_slot,odoomancy.model_odoomancy_spell_slot,base.group_user,1,1,1,1

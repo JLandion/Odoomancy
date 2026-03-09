@@ -15,3 +15,9 @@ class DndApiService:
 
     def get_monster(self, index):
         return self._get(f"monsters/{index}")
+
+    def list_spells(self):
+        return self._get("spells")
+
+    def get_spell(self, index):
+        return self._get(f"spells/{index}")

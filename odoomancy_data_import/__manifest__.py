@@ -15,7 +15,8 @@
     ],
     "data": [
         'security/ir.model.access.csv',
-        'views/data_import_views.xml'
+        'views/monster_import_views.xml',
+        'views/spells_import_views.xml'
     ],
     "qweb": [],
     "installable": True,

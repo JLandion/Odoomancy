@@ -70,22 +70,19 @@ class OdoomancyImporterMixin(models.AbstractModel):
 
                 if record:
                     if self.import_mode == "upsert":
-                        to_update.append((record, vals))
+                        with self.env.cr.savepoint():
+                            record.write(vals)
+                            print("Updated:", record.name)
                 else:
-                    to_create.append(vals)
+                    with self.env.cr.savepoint():
+                        model.create([vals])
+                        print("Create:", vals.get("name", external_key))
 
             except Exception:
                 errors += 1
                 _logger.exception("Error importing %s", ref.get("index"))
+                continue
 
-        if to_create:
-            model.create(to_create)
-
-        for rec, vals in to_update:
-            rec.write(vals)
-
-        self.created_count = len(to_create)
-        self.updated_count = len(to_update)
         self.error_count = errors
 
         return self._reload_wizard()
