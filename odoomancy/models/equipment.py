@@ -19,8 +19,7 @@ class OdoomancyEquipment(models.Model):
     api_index = fields.Char(required=True, index=True)
 
     equipment_category_id = fields.Many2one(
-        "odoomancy.equipment.category",
-        required=True
+        "odoomancy.equipment.category"
     )
 
     equipment_type = fields.Selection([
@@ -44,6 +43,7 @@ class OdoomancyEquipment(models.Model):
 
     weight = fields.Float()
 
+    range_text = fields.Char()
     range_normal = fields.Integer()
     range_long = fields.Integer()
 
