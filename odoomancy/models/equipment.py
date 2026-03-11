@@ -43,7 +43,6 @@ class OdoomancyEquipment(models.Model):
 
     weight = fields.Float()
 
-    range_text = fields.Char()
     range_normal = fields.Integer()
     range_long = fields.Integer()
 

@@ -55,7 +55,6 @@
 
                     <!-- RANGE -->
                     <group string="Range">
-                        <field name="range_text"/>
                         <field name="range_normal"/>
                         <field name="range_long"/>
                     </group>
