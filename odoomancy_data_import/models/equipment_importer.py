@@ -75,18 +75,10 @@ class OdoomancyEquipmentImporter(models.TransientModel):
         # -------------------------
         # RANGE
         # -------------------------
-        range_data = data.get("range")
+        range_data = data.get("range", {})
+        range_normal = range_data.get("normal")
+        range_long = range_data.get("long")
 
-        range_normal = None
-        range_long = None
-        range_text = None
-
-        if isinstance(range_data, dict):
-            range_normal = range_data.get("normal")
-            range_long = range_data.get("long")
-
-        elif isinstance(range_data, str):
-            range_text = range_data
 
         # -------------------------
         # DAMAGE
@@ -160,7 +152,6 @@ class OdoomancyEquipmentImporter(models.TransientModel):
         # -------------------------
         # EQUIPMENT TYPE (derived)
         # -------------------------
-        equipment_type = None
 
         if weapon_category:
             equipment_type = "weapon"
@@ -182,7 +173,6 @@ class OdoomancyEquipmentImporter(models.TransientModel):
             "cost_quantity": cost_quantity,
             "cost_unit": cost_unit,
             "weight": weight,
-            "range_text": range_text,
             "range_normal": range_normal,
             "range_long": range_long,
             "damage_dice": damage_dice,
