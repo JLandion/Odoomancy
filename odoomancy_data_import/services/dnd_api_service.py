@@ -21,3 +21,9 @@ class DndApiService:
 
     def get_spell(self, index):
         return self._get(f"spells/{index}")
+
+    def list_equipment(self):
+        return self._get("equipment")
+
+    def get_equipment(self, index):
+        return self._get(f"equipment/{index}")
