@@ -10,14 +10,8 @@ class DndApiService:
         response.raise_for_status()
         return response.json()
 
-    def list_monsters(self):
-        return self._get("monsters")
+    def list_(self, param):
+        return self._get(param)
 
-    def get_monster(self, index):
-        return self._get(f"monsters/{index}")
-
-    def list_spells(self):
-        return self._get("spells")
-
-    def get_spell(self, index):
-        return self._get(f"spells/{index}")
+    def get_(self, param, index):
+        return self._get(f"{param}/{index}")
