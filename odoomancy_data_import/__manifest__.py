@@ -18,6 +18,11 @@
         'views/monster_import_views.xml',
         'views/spells_import_views.xml'
     ],
+    'assets': {
+        'web.assets_backend': [
+            'odoomancy_data_import/static/src/js/import_progress.js',
+        ],
+    },
     "qweb": [],
     "installable": True,
     "application": False,

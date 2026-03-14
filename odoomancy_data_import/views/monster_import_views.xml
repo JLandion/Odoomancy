@@ -7,21 +7,24 @@
         <field name="arch" type="xml">
             <form string="Import Monsters">
                 <group>
-                    <field name="import_mode"/>
+                    <group>
+                        <field name="import_mode" widget="radio"
+                               readonly="is_running"/>
+                    </group>
+                    <group>
+                        <field name="progress" widget="progressbar"
+                               options="{'current_value': 'progress', 'max_value': '100'}"
+                               readonly="1"/>
+                        <field name="progress_label" readonly="1"/>
+                        <field name="is_running" invisible="1"/>
+                    </group>
                 </group>
-
-                <group string="Results">
-                    <field name="created_count" readonly="1"/>
-                    <field name="updated_count" readonly="1"/>
-                    <field name="error_count" readonly="1"/>
-                </group>
-
                 <footer>
-                    <button name="action_import"
+                    <button name="action_import" type="object"
                             string="Import"
-                            type="object"
-                            class="btn-primary"/>
-                    <button string="Close" special="cancel"/>
+                            class="btn-primary"
+                            invisible="is_running"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>
         </field>
