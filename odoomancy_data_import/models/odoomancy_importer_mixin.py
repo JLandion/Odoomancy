@@ -26,18 +26,23 @@ class OdoomancyImporterMixin(models.AbstractModel):
         raise NotImplementedError()
 
     def _get_model_name(self):
+        """Must return the name of the target model"""
         raise NotImplementedError()
 
     def _get_api_list(self, api):
+        """Must return a list of references"""
         raise NotImplementedError()
 
     def _get_api_detail(self, api, ref):
+        """Must return the details of an item"""
         raise NotImplementedError()
 
     def _map_api_to_vals(self, data):
+        """Must transform JSON into Odoo values"""
         raise NotImplementedError()
 
     def _get_external_key(self, ref, data):
+        """‘Unique external key (e.g., index)"""
         raise NotImplementedError()
 
     # ----- AUX METHODS -----
@@ -107,6 +112,7 @@ class OdoomancyImporterMixin(models.AbstractModel):
         total = len(refs)
 
         external_keys = [r["index"] for r in refs]
+
         existing = model.search([("api_index", "in", external_keys)])
         existing_map = {rec.api_index: rec for rec in existing}
 
