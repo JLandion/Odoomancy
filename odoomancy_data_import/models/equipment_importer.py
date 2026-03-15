@@ -6,6 +6,8 @@ class OdoomancyEquipmentImporter(models.TransientModel):
     _name = "odoomancy.equipment.importer"
     _inherit = "odoomancy.importer.mixin"
 
+    _description = "Import Equipment from D&D Api"
+
     def _get_api_service(self):
         return DndApiService()
 
@@ -13,10 +15,10 @@ class OdoomancyEquipmentImporter(models.TransientModel):
         return "odoomancy.equipment"
 
     def _get_api_list(self, api):
-        return api.list_equipment().get("results", [])
+        return api.list_('equipment').get("results", [])
 
     def _get_api_detail(self, api, ref):
-        return api.get_equipment(ref)
+        return api.get_('equipment', ref)
 
     def _selection_label_to_key(self, model, field_name, label):
         if not label:
