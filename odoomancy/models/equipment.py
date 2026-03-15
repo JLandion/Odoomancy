@@ -19,8 +19,7 @@ class OdoomancyEquipment(models.Model):
     api_index = fields.Char(required=True, index=True)
 
     equipment_category_id = fields.Many2one(
-        "odoomancy.equipment.category",
-        required=True
+        "odoomancy.equipment.category"
     )
 
     equipment_type = fields.Selection([

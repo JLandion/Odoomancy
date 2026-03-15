@@ -1,0 +1,108 @@
+<odoo>
+
+    <!-- ACTION -->
+    <record id="action_odoomancy_equipment" model="ir.actions.act_window">
+        <field name="name">Equipment</field>
+        <field name="res_model">odoomancy.equipment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- LIST -->
+    <record id="view_odoomancy_equipment_list" model="ir.ui.view">
+        <field name="name">odoomancy.equipment.list</field>
+        <field name="model">odoomancy.equipment</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="equipment_type"/>
+                <field name="equipment_category_id"/>
+                <field name="cost_quantity"/>
+                <field name="cost_unit"/>
+                <field name="weight"/>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- FORM -->
+    <record id="view_odoomancy_equipment_form" model="ir.ui.view">
+        <field name="name">odoomancy.equipment.form</field>
+        <field name="model">odoomancy.equipment</field>
+        <field name="arch" type="xml">
+            <form string="Equipment">
+                <sheet>
+
+                    <!-- HEADER INFO -->
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="equipment_type"/>
+                            <field name="equipment_category_id"/>
+                        </group>
+
+                        <group>
+                            <field name="cost_quantity"/>
+                            <field name="cost_unit"/>
+                            <field name="weight"/>
+                        </group>
+                    </group>
+
+                    <!-- DESCRIPTION -->
+                    <group invisible="not description">
+                        <field name="description"/>
+                    </group>
+
+                    <!-- RANGE -->
+                    <group string="Range" invisible="range_normal == 0 and range_long == 0">
+                        <field name="range_normal"/>
+                        <field name="range_long"/>
+                    </group>
+
+                    <!-- WEAPON -->
+                    <group string="Weapon Info"
+                           invisible="equipment_type != 'weapon'">
+                        <group>
+                            <field name="weapon_category"/>
+                            <field name="weapon_range"/>
+                        </group>
+
+                        <group>
+                            <field name="damage_dice"/>
+                            <field name="damage_type_id"/>
+                        </group>
+
+                        <group>
+                            <field name="weapon_property_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+
+                    <!-- ARMOR -->
+                    <group string="Armor Info"
+                           invisible="equipment_type != 'armor'">
+
+                        <group>
+                            <field name="armor_category"/>
+                            <field name="armor_class_base"/>
+                        </group>
+
+                        <group>
+                            <field name="armor_dex_bonus"/>
+                            <field name="armor_max_bonus"/>
+                            <field name="armor_str_minimum"/>
+                        </group>
+
+                    </group>
+
+                    <!-- TOOLS -->
+                    <group string="Tool Info"
+                           invisible="equipment_type != 'tool'">
+                        <field name="tool_category"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

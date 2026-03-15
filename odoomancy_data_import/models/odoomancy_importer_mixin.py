@@ -43,6 +43,17 @@ class OdoomancyImporterMixin(models.AbstractModel):
         """‘Unique external key (e.g., index)"""
         raise NotImplementedError()
 
+    # ----- AUX METHODS -----
+
+    def _selection_label_to_key(self, model, field_name, label):
+        if not label:
+            return False
+
+        selection = dict(self.env[model]._fields[field_name].selection)
+        reverse_selection = {v: k for k, v in selection.items()}
+
+        return reverse_selection.get(label)
+
     # ----- GENERIC LOGIC -----
 
     def action_import(self):
