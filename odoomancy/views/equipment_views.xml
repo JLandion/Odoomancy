@@ -49,12 +49,12 @@
                     </group>
 
                     <!-- DESCRIPTION -->
-                    <group>
+                    <group invisible="not description">
                         <field name="description"/>
                     </group>
 
                     <!-- RANGE -->
-                    <group string="Range">
+                    <group string="Range" invisible="range_normal == 0 and range_long == 0">
                         <field name="range_normal"/>
                         <field name="range_long"/>
                     </group>

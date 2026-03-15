@@ -41,24 +41,35 @@ class OdoomancyEquipmentImporter(models.TransientModel):
         equipment_category_id = None
 
         if isinstance(category, dict):
-            cat_name = category.get("name")
             cat_index = category.get("index")
 
             cat = self.env["odoomancy.equipment.category"].search(
                 [("api_index", "=", cat_index)], limit=1
             )
-            if not cat:
-                cat = self.env["odoomancy.equipment.category"].create({
-                    "name": cat_name,
-                    "api_index": cat_index,
-                })
-            equipment_category_id = cat.id
+
+            equipment_category_id = cat.id if cat else False
+
+        # -------------------------
+        # EQUIPMENT TYPE (derived)
+        # -------------------------
+
+        category_index = category.get("index") if isinstance(category, dict) else None
+
+        category_map = {
+            "weapon": "weapon",
+            "armor": "armor",
+            "adventuring-gear": "gear",
+            "tools": "tool",
+            "mounts-and-vehicles": "mount",
+        }
+
+        equipment_type = category_map.get(category_index)
 
         # -------------------------
         # DESCRIPTION
         # -------------------------
         desc = data.get("desc") or []
-        description = "<br/>".join(desc) if isinstance(desc, list) else desc or ""
+        description = "\n".join(desc) if isinstance(desc, list) else desc or None
 
         # -------------------------
         # COST
@@ -88,46 +99,42 @@ class OdoomancyEquipmentImporter(models.TransientModel):
 
         damage = data.get("damage")
         if isinstance(damage, dict):
+
             damage_dice = damage.get("damage_dice")
 
             damage_type = damage.get("damage_type")
             if isinstance(damage_type, dict):
-                dt_name = damage_type.get("name")
                 dt_index = damage_type.get("index")
 
                 dt = self.env["odoomancy.damage.type"].search(
                     [("api_index", "=", dt_index)], limit=1
                 )
-                if not dt:
-                    dt = self.env["odoomancy.damage.type"].create({
-                        "name": dt_name,
-                        "api_index": dt_index,
-                    })
-                damage_type_id = dt.id
+
+                damage_type_id = dt.id if dt else False
 
         # -------------------------
         # WEAPON INFO
         # -------------------------
-        weapon_category = self._equipment_selection("weapon_category", data.get("weapon_category"))
-        weapon_range = self._equipment_selection("weapon_range", data.get("weapon_range"))
+        weapon_category = self._equipment_selection(
+            "weapon_category", data.get("weapon_category")
+        )
 
-        # weapon_property_ids = []
-        # properties = data.get("properties", [])
-        #
-        # for prop in properties:
-        #     prop_name = prop.get("name")
-        #     prop_index = prop.get("index")
-        #
-        #     rec = self.env["odoomancy.weapon.property"].search(
-        #         [("api_index", "=", prop_index)], limit=1
-        #     )
-        #     if not rec:
-        #         rec = self.env["odoomancy.weapon.property"].create({
-        #             "name": prop_name,
-        #             "api_index": prop_index,
-        #         })
-        #
-        #     weapon_property_ids.append(rec.id)
+        weapon_range = self._equipment_selection(
+            "weapon_range", data.get("weapon_range")
+        )
+
+        weapon_property_ids = []
+        properties = data.get("properties", [])
+
+        for prop in properties:
+            prop_index = prop.get("index")
+
+            rec = self.env["odoomancy.weapon.property"].search(
+                [("api_index", "=", prop_index)], limit=1
+            )
+
+            if rec:
+                weapon_property_ids.append(rec.id)
 
         # -------------------------
         # ARMOR INFO
@@ -135,8 +142,6 @@ class OdoomancyEquipmentImporter(models.TransientModel):
         armor_category = self._equipment_selection("armor_category", data.get("armor_category"))
 
         armor_class = data.get("armor_class") or {}
-        if "armor" in data.get("index"):
-            print(data.get("index"))
 
         armor_class_base = armor_class.get("base")
         armor_dex_bonus = armor_class.get("dex_bonus")
@@ -149,18 +154,7 @@ class OdoomancyEquipmentImporter(models.TransientModel):
         # -------------------------
         tool_category = self._equipment_selection("tool_category", data.get("tool_category"))
 
-        # -------------------------
-        # EQUIPMENT TYPE (derived)
-        # -------------------------
 
-        if weapon_category:
-            equipment_type = "weapon"
-        elif armor_category:
-            equipment_type = "armor"
-        elif tool_category:
-            equipment_type = "tool"
-        else:
-            equipment_type = None
 
         return {
             "api_index": api_index,
@@ -177,7 +171,7 @@ class OdoomancyEquipmentImporter(models.TransientModel):
             "damage_type_id": damage_type_id,
             "weapon_category": weapon_category,
             "weapon_range": weapon_range,
-            # "weapon_property_ids": [(6, 0, weapon_property_ids)],
+            "weapon_property_ids": [(6, 0, weapon_property_ids)],
             "armor_category": armor_category,
             "armor_str_minimum": armor_str_minimum,
             "armor_class_base": armor_class_base,
