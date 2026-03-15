@@ -5,7 +5,7 @@
         <field name="name">odoomancy.equipment.importer.form</field>
         <field name="model">odoomancy.equipment.importer</field>
         <field name="arch" type="xml">
-            <form string="Import equipment">
+            <form string="Import Equipment">
                 <group>
                     <field name="import_mode"/>
                 </group>
@@ -28,7 +28,7 @@
     </record>
 
     <record id="action_equipment_importer" model="ir.actions.act_window">
-        <field name="name">Import equipment</field>
+        <field name="name">Import Equipment</field>
         <field name="res_model">odoomancy.equipment.importer</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
@@ -36,7 +36,7 @@
 
     <menuitem
         id="menu_equipment_importer"
-        name="Import equipment"
+        name="Import Equipment"
         parent="menu_odoomancy_data_import_root"
         action="action_equipment_importer"
         sequence="20"
