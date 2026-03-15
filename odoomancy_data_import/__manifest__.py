@@ -15,8 +15,7 @@
     ],
     "data": [
         'security/ir.model.access.csv',
-        'views/monster_import_views.xml',
-        'views/spells_import_views.xml'
+        'views/global_import_view.xml'
     ],
     'assets': {
         'web.assets_backend': [

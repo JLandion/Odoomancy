@@ -8,7 +8,8 @@ class DndApiService:
         url = f"{self.BASE_URL}/{endpoint}"
         response = requests.get(url, headers={"Accept": "application/json"})
         response.raise_for_status()
-        return response.json()
+        res = response.json()
+        return res
 
     def list_(self, param):
         return self._get(param)

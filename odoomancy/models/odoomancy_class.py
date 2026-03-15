@@ -5,6 +5,7 @@ class OdoomancyClass(models.Model):
     _name = "odoomancy.class"
     _description = "Class"
 
+    api_index = fields.Char()
     name = fields.Char(required=True)
     description = fields.Text()
     type = fields.Selection([
@@ -18,8 +19,7 @@ class OdoomancyClass(models.Model):
 
     hit_die = fields.Integer(string="Hit Die", required=True)
 
-    proficience_description = fields.Text(string="Proficiencies Description")
-    proficiencie_id = fields.Many2many(
+    proficiencie_ids = fields.Many2many(
         "odoomancy.proficience",
         "odoomancy_class_proficience_rel",
         "class_id",
@@ -54,7 +54,7 @@ class OdoomancyClass(models.Model):
                                          "equipment_option_id",
                                          string="Equipment Options")
 
-    class_level_ids = fields.One2many("odoomancy.class_level",
+    class_level_ids = fields.One2many("odoomancy.class.level",
                                       "class_id",
                                       string="Class Levels")
 
