@@ -111,23 +111,23 @@ class OdoomancyEquipmentImporter(models.TransientModel):
         weapon_category = self._equipment_selection("weapon_category", data.get("weapon_category"))
         weapon_range = self._equipment_selection("weapon_range", data.get("weapon_range"))
 
-        weapon_property_ids = []
-        properties = data.get("properties", [])
-
-        for prop in properties:
-            prop_name = prop.get("name")
-            prop_index = prop.get("index")
-
-            rec = self.env["odoomancy.weapon.property"].search(
-                [("api_index", "=", prop_index)], limit=1
-            )
-            if not rec:
-                rec = self.env["odoomancy.weapon.property"].create({
-                    "name": prop_name,
-                    "api_index": prop_index,
-                })
-
-            weapon_property_ids.append(rec.id)
+        # weapon_property_ids = []
+        # properties = data.get("properties", [])
+        #
+        # for prop in properties:
+        #     prop_name = prop.get("name")
+        #     prop_index = prop.get("index")
+        #
+        #     rec = self.env["odoomancy.weapon.property"].search(
+        #         [("api_index", "=", prop_index)], limit=1
+        #     )
+        #     if not rec:
+        #         rec = self.env["odoomancy.weapon.property"].create({
+        #             "name": prop_name,
+        #             "api_index": prop_index,
+        #         })
+        #
+        #     weapon_property_ids.append(rec.id)
 
         # -------------------------
         # ARMOR INFO
@@ -159,8 +159,6 @@ class OdoomancyEquipmentImporter(models.TransientModel):
             equipment_type = "armor"
         elif tool_category:
             equipment_type = "tool"
-        elif tool_category:
-            equipment_type = "gear"
         else:
             equipment_type = None
 
@@ -179,7 +177,7 @@ class OdoomancyEquipmentImporter(models.TransientModel):
             "damage_type_id": damage_type_id,
             "weapon_category": weapon_category,
             "weapon_range": weapon_range,
-            "weapon_property_ids": [(6, 0, weapon_property_ids)],
+            # "weapon_property_ids": [(6, 0, weapon_property_ids)],
             "armor_category": armor_category,
             "armor_str_minimum": armor_str_minimum,
             "armor_class_base": armor_class_base,

@@ -50,6 +50,7 @@ class OdoomancyImporterMixin(models.AbstractModel):
         reverse_selection = {v: k for k, v in selection.items()}
 
         return reverse_selection.get(label)
+
     # ----- GENERIC LOGIC -----
 
     def action_import(self):
