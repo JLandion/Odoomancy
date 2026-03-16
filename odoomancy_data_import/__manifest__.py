@@ -7,7 +7,7 @@
     """,
     "version": "19.0.1.0.0",
     "category": "Games",
-    "author": "Perfidio",
+    "author": "Odoomancers",
     "license": "LGPL-3",
     "depends": [
         "base",
