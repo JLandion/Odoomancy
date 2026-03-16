@@ -1,3 +1,4 @@
+from . import odoomancy_class_aux
 from . import ability_score
 from . import campaign
 from . import campaign_log

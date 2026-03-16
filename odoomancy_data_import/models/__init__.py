@@ -1,4 +1,6 @@
 from . import odoomancy_importer_mixin
+from . import odoomancy_global_importer
+from . import class_importer
 from . import monster_importer
 from . import spells_importer
 from . import equipment_importer

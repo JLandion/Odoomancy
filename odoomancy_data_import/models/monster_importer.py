@@ -13,10 +13,10 @@ class OdoomancyMonsterImporter(models.TransientModel):
         return "odoomancy.monster"
 
     def _get_api_list(self, api):
-        return api.list_monsters().get("results", [])
+        return api.list_('monsters').get("results", [])
 
     def _get_api_detail(self, api, ref):
-        return api.get_monster(ref)
+        return api.get_('monsters', ref)
 
     def _map_api_to_vals(self, data):
         return {

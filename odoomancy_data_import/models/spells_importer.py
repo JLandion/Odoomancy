@@ -13,10 +13,10 @@ class OdoomancySpellsImporter(models.TransientModel):
         return "odoomancy.spell"
 
     def _get_api_list(self, api):
-        return api.list_spells().get("results", [])
+        return api.list_('spells').get("results", [])
 
     def _get_api_detail(self, api, ref):
-        return api.get_spell(ref)
+        return api.get_('spells', ref)
 
     def _map_api_to_vals(self, data):
         name = data.get("name")

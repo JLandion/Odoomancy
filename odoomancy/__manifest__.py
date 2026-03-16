@@ -21,7 +21,7 @@ A different way to play D&D for and by Odoomancers
     ],
     'installable': True,
     'application': True,
-    'author': 'Perfidio',
+    'author': 'Odoomancers',
     'license': 'LGPL-3',
 }
 

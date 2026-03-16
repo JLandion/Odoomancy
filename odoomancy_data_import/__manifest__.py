@@ -7,7 +7,7 @@
     """,
     "version": "19.0.1.0.0",
     "category": "Games",
-    "author": "Perfidio",
+    "author": "Odoomancers",
     "license": "LGPL-3",
     "depends": [
         "base",
@@ -15,10 +15,13 @@
     ],
     "data": [
         'security/ir.model.access.csv',
-        'views/monster_import_views.xml',
-        'views/spells_import_views.xml',
-        'views/equipment_import_views.xml',
+        'views/global_import_view.xml'
     ],
+    'assets': {
+        'web.assets_backend': [
+            'odoomancy_data_import/static/src/js/import_progress.js',
+        ],
+    },
     "qweb": [],
     "installable": True,
     "application": False,
