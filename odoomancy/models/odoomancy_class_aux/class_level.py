@@ -6,7 +6,7 @@ class OdoomancyClassLevel(models.Model):
     _description = "Class Level"
 
     api_index = fields.Char(string="Api Index")
-    class_id = fields.Many2one("odoomancy.class", required=True, ondelete="cascade")
+    class_id = fields.Many2one("odoomancy.class", ondelete="cascade")
     level = fields.Integer(required=True)
     prof_bonus = fields.Integer(string="Profile Bonus")
     features = fields.Text(string="Level Features") # TODO: hacer modelo

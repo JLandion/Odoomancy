@@ -8,7 +8,7 @@ class OdoomancyGlobalImporter(models.TransientModel):
     importer_model = fields.Selection([
         ('odoomancy.class.importer', 'Classes'),
         ('odoomancy.equipment.importer', 'Equipment'),
-        #('odoomancy.class.level.importer', 'Class Levels'),
+        ('odoomancy.class.level.importer', 'Class Levels'),
         ('odoomancy.monster.importer', 'Monsters'),
         ('odoomancy.spells.importer', 'Spells'),
     ], string="Import", required=True)
