@@ -11,6 +11,7 @@ A different way to play D&D for and by Odoomancers
         'security/ir.model.access.csv',
         'views/campaign_views.xml',
         'views/character_views.xml',
+        'views/class_views.xml',
         'views/encounter_views.xml',
         'views/equipment_views.xml',
         'views/log_views.xml',
