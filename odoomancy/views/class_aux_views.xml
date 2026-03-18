@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ==================== ABILITY SCORES ==================== -->
+
+    <record id="view_odoomancy_ability_scores_list" model="ir.ui.view">
+        <field name="name">odoomancy.ability.scores.list</field>
+        <field name="model">odoomancy.ability.scores</field>
+        <field name="arch" type="xml">
+            <list string="Ability Scores">
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odoomancy_ability_scores_form" model="ir.ui.view">
+        <field name="name">odoomancy.ability.scores.form</field>
+        <field name="model">odoomancy.ability.scores</field>
+        <field name="arch" type="xml">
+            <form string="Ability Score">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                    <notebook>
+                        <page string="Skills">
+                            <field name="skill_id">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_odoomancy_ability_scores" model="ir.actions.act_window">
+        <field name="name">Ability Scores</field>
+        <field name="res_model">odoomancy.ability.scores</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== FEATURES ==================== -->
+
+    <record id="view_odoomancy_features_list" model="ir.ui.view">
+        <field name="name">odoomancy.features.list</field>
+        <field name="model">odoomancy.features</field>
+        <field name="arch" type="xml">
+            <list string="Features">
+                <field name="name"/>
+                <field name="class_id"/>
+                <field name="level"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odoomancy_features_form" model="ir.ui.view">
+        <field name="name">odoomancy.features.form</field>
+        <field name="model">odoomancy.features</field>
+        <field name="arch" type="xml">
+            <form string="Feature">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Feature name..."/></h1>
+                    </div>
+                    <group>
+                        <group string="Info">
+                            <field name="api_index"/>
+                            <field name="class_id"/>
+                            <field name="level"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Expertise Options">
+                            <field name="expertise_options">
+                                <list>
+                                    <field name="name"/>
+<!--                                    <field name="class_id"/>-->
+<!--                                    <field name="level"/>-->
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Prerequisites">
+                            <field name="prerequisites" widget="json" nolabel="1"/>
+                        </page>
+                        <page string="Invocations">
+                            <field name="invocations" widget="json" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_odoomancy_features" model="ir.actions.act_window">
+        <field name="name">Features</field>
+        <field name="res_model">odoomancy.features</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== PROFICIENCIES ==================== -->
+
+    <record id="view_odoomancy_proficience_list" model="ir.ui.view">
+        <field name="name">odoomancy.proficience.list</field>
+        <field name="model">odoomancy.proficience</field>
+        <field name="arch" type="xml">
+            <list string="Proficiencies">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="api_index"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odoomancy_proficience_form" model="ir.ui.view">
+        <field name="name">odoomancy.proficience.form</field>
+        <field name="model">odoomancy.proficience</field>
+        <field name="arch" type="xml">
+            <form string="Proficiency">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Proficiency name..."/></h1>
+                    </div>
+                    <group>
+                        <group string="Info">
+                            <field name="api_index"/>
+                            <field name="type"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Classes">
+                            <field name="class_id" widget="many2many_tags"/>
+                        </page>
+                        <page string="Skills">
+                            <field name="skill" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_odoomancy_proficience" model="ir.actions.act_window">
+        <field name="name">Proficiencies</field>
+        <field name="res_model">odoomancy.proficience</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== SKILLS ==================== -->
+
+    <record id="view_odoomancy_skill_list" model="ir.ui.view">
+        <field name="name">odoomancy.skill.list</field>
+        <field name="model">odoomancy.skill</field>
+        <field name="arch" type="xml">
+            <list string="Skills">
+                <field name="name"/>
+                <field name="ability_score_ids"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odoomancy_skill_form" model="ir.ui.view">
+        <field name="name">odoomancy.skill.form</field>
+        <field name="model">odoomancy.skill</field>
+        <field name="arch" type="xml">
+            <form string="Skill">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <field name="ability_score_ids" string="Ability Score"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_odoomancy_skill" model="ir.actions.act_window">
+        <field name="name">Skills</field>
+        <field name="res_model">odoomancy.skill</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== MENUITEMS ==================== -->
+
+    <menuitem
+        id="menu_odoomancy_ability_scores"
+        name="Ability Scores"
+        parent="menu_odoomancy_class_root"
+        action="action_odoomancy_ability_scores"
+        sequence="30"
+    />
+
+    <menuitem
+        id="menu_odoomancy_features"
+        name="Features"
+        parent="menu_odoomancy_class_root"
+        action="action_odoomancy_features"
+        sequence="40"
+    />
+
+    <menuitem
+        id="menu_odoomancy_proficience"
+        name="Proficiencies"
+        parent="menu_odoomancy_class_root"
+        action="action_odoomancy_proficience"
+        sequence="50"
+    />
+
+    <menuitem
+        id="menu_odoomancy_skill"
+        name="Skills"
+        parent="menu_odoomancy_class_root"
+        action="action_odoomancy_skill"
+        sequence="60"
+    />
+
+</odoo>
