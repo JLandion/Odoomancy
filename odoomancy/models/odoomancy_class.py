@@ -21,35 +21,35 @@ class OdoomancyClass(models.Model):
 
     proficiencie_ids = fields.Many2many(
         "odoomancy.proficience",
-        "odoomancy_class_proficience_rel",
+        "class_proficience_rel",
         "class_id",
         "proficience_id",
         string="Proficiencies"
     )
     proficience_choice_ids = fields.Many2many(
         "odoomancy.proficience",
-        "odoomancy_class_proficience_choice_rel",
+        "class_proficience_choice_rel",
         "class_id",
         "proficience_id",
         string="Proficiencies"
     )
 
-    saving_throws = fields.Many2many(
-        "odoomancy.saving_throw",
-        "odoomancy_class_saving_throw_rel",
+    ability_scores = fields.Many2many(
+        "odoomancy.ability.scores",
+        "class_ability_scores_rel",
         "class_id",
-        "saving_throw_id",
-        string="Saving Throws"
+        "ability_scores",
+        string="Saving Throws (Ability Scores)"
     )
 
     equipment_starting = fields.Many2many("odoomancy.equipment",
-                                          "odoomancy_class_equipment_starting_rel",
+                                          "class_equipment_starting_rel",
                                           "class_id",
                                           "equipment_id",
                                           string="Starting Equipment")
 
     equipment_options = fields.Many2many("odoomancy.equipment",
-                                         "odoomancy_class_equipment_option_rel",
+                                         "class_equipment_option_rel",
                                          "class_id",
                                          "equipment_option_id",
                                          string="Equipment Options")
@@ -65,5 +65,3 @@ class OdoomancyClass(models.Model):
         "spell_id",
         string="Available Spells"
     )
-
-

@@ -73,7 +73,7 @@
                             <group>
                                 <field name="proficiencie_ids" widget="many2many_tags"/>
                                 <field name="proficience_choice_ids" widget="many2many_tags"/>
-                                <field name="saving_throws" widget="many2many_tags"/>
+                                <field name="ability_scores" widget="many2many_tags"/>
                             </group>
                         </page>
                         <page string="Equipment">

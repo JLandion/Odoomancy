@@ -14,7 +14,11 @@ odoomancy.access_odoomancy_encounter_monster,access_odoomancy_encounter_monster,
 odoomancy.access_odoomancy_feat,access_odoomancy_feat,odoomancy.model_odoomancy_feat,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_monster,access_odoomancy_monster,odoomancy.model_odoomancy_monster,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_class,access_odoomancy_class,odoomancy.model_odoomancy_class,base.group_user,1,1,1,1
-odoomancy.access_odoomancy_class_level,access_odoomancy_class_level,odoomancy.model_odoomancy_class_level,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_race,access_odoomancy_race,odoomancy.model_odoomancy_race,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_spell,access_odoomancy_spell,odoomancy.model_odoomancy_spell,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_spell_slot,access_odoomancy_spell_slot,odoomancy.model_odoomancy_spell_slot,base.group_user,1,1,1,1
+odoomancy.access_odoomancy_ability_scores,access_odoomancy_ability_scores,odoomancy.model_odoomancy_ability_scores,base.group_user,1,1,1,1
+odoomancy.access_odoomancy_class_level,access_odoomancy_class_level,odoomancy.model_odoomancy_class_level,base.group_user,1,1,1,1
+odoomancy.access_odoomancy_features,access_odoomancy_features,odoomancy.model_odoomancy_features,base.group_user,1,1,1,1
+odoomancy.access_odoomancy_proficience,access_odoomancy_proficience,odoomancy.model_odoomancy_proficience,base.group_user,1,1,1,1
+odoomancy.access_odoomancy_skill,access_odoomancy_skill,odoomancy.model_odoomancy_skill,base.group_user,1,1,1,1
