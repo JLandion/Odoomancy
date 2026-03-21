@@ -20,6 +20,64 @@
                         <field name="is_running" invisible="1"/>
                     </group>
                 </group>
+
+                <div class="row mt-3 g-2">
+                    <div class="col-3">
+                        <div class="card text-center p-2">
+                            <div class="text-muted small">Classes</div>
+                            <div class="fs-4 fw-bold"><field name="count_classes" readonly="1" nolabel="1"/></div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center p-2">
+                            <div class="text-muted small">Class Levels</div>
+                            <div class="fs-4 fw-bold"><field name="count_class_level" readonly="1" nolabel="1"/></div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center p-2">
+                            <div class="text-muted small">Spells</div>
+                            <div class="fs-4 fw-bold"><field name="count_spells" readonly="1" nolabel="1"/></div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center p-2">
+                            <div class="text-muted small">Monsters</div>
+                            <div class="fs-4 fw-bold"><field name="count_monsters" readonly="1" nolabel="1"/></div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center p-2">
+                            <div class="text-muted small">Equipment</div>
+                            <div class="fs-4 fw-bold"><field name="count_equipments" readonly="1" nolabel="1"/></div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center p-2">
+                            <div class="text-muted small">Skills</div>
+                            <div class="fs-4 fw-bold"><field name="count_skills" readonly="1" nolabel="1"/></div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center p-2">
+                            <div class="text-muted small">Ability Scores</div>
+                            <div class="fs-4 fw-bold"><field name="count_ability_scores" readonly="1" nolabel="1"/></div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center p-2">
+                            <div class="text-muted small">Proficiencies</div>
+                            <div class="fs-4 fw-bold"><field name="count_proficience" readonly="1" nolabel="1"/></div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center p-2">
+                            <div class="text-muted small">Features</div>
+                            <div class="fs-4 fw-bold"><field name="count_features" readonly="1" nolabel="1"/></div>
+                        </div>
+                    </div>
+                </div>
+
                 <footer>
                     <button name="action_import"
                             type="object"
