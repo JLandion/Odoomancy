@@ -72,15 +72,13 @@ class OdoomancySpellsImporter(models.TransientModel):
         #             damage_type_id = damage_type_rec.id
 
         # Classes
-        # class_ids = []
-        # classes_data = data.get("classes", [])
-        # for cls in classes_data:
-        #     cls_name = cls.get("name")
-        #     if cls_name:
-        #         class_rec = self.env['odoomancy.class'].search([('name', '=', cls_name)], limit=1)
-        #         if not class_rec:
-        #             class_rec = self.env['odoomancy.class'].create([{'name': cls_name}])
-        #         class_ids.append(class_rec.id)
+        class_ids = []
+        classes_data = data.get("classes", [])
+        for cls in classes_data:
+            cls_name = cls.get("index")
+            if cls_name:
+                class_rec = self.env['odoomancy.class'].search([('type', '=', cls_name)], limit=1)
+                class_ids.append(class_rec.id)
 
         # Subclasses
         # subclass_ids = []

@@ -14,4 +14,5 @@ class OdoomancyGlobalImporter(models.TransientModel):
         ('odoomancy.skills.importer', 'Skills'),
         ('odoomancy.ability.scores.importer', 'Ability Scores'),
         ('odoomancy.features.importer', 'Features'),
+        ('odoomancy.proficience.importer', 'Proficiencies')
     ], string="Import", required=True)
