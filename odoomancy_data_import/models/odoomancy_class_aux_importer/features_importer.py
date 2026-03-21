@@ -28,7 +28,8 @@ class OdoomancyFeaturesImporter(models.TransientModel):
         description = "<br/>".join(desc) if isinstance(desc, list) else desc or ""
 
         prerequisites = data.get("prerequisites") or []
-        prerequisites = "<br/>".join(prerequisites) if prerequisites else ""
+        if len(prerequisites) <= 0:
+            prerequisites = {}
 
         level = data.get("level")
         class_ = None
@@ -45,8 +46,10 @@ class OdoomancyFeaturesImporter(models.TransientModel):
                 choose = fs.get("choose")
             if "from" in fs and "options" in fs.get("from"):
                 from_ = fs.get("from").get("options")
+                expertise_options = []
                 for i in from_:
-                    expertise_options = self.env['odoomancy.proficience'].search([('api-index', '=', i.get('index'))], limit=1)
+                    p = self.env['odoomancy.proficience'].search([('api_index', '=', i.get('index'))], limit=1)
+                    expertise_options.append(p.id) if len(p) == 1 else None
         if "feature_specific" in data and "invocations" in data.get("feature_specific"):
             invocations = data.get("feature_specific").get("invocations")
 

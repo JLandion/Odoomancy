@@ -29,12 +29,13 @@ class OdoomancyAbilityScoresImporter(models.TransientModel):
         skills = None
         if "skills" in data and "index" in data.get("skills"):
             skills = data.get("skills").get("index")
-            skills = self.env['odoomancy.skills'].search([('name', '=', skills)], limit=1)
+            skills = self.env['odoomancy.skills'].search([('api_index', '=', skills)], limit=1)
 
-        class_ = None
-        if "class" in data and "index" in data.get("skills"):
-            class_ = data.get("skills").get("index")
-            class_ = self.env['odoomancy.skills'].search([('name', '=', class_)], limit=1)
+        if "class" in data and "index" in data.get("classes"):
+            class_ = data.get("classes").get("index")
+            class_ = self.env['odoomancy.class'].search([('type', 'in', class_)], limit=1).ids
+        else:
+            class_ = self.env['odoomancy.class'].search([]).ids
 
         return{
             "name": index,
