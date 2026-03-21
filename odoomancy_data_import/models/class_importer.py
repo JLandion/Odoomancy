@@ -25,10 +25,12 @@ class OdoomancyClassImporter(models.TransientModel):
         desc = data.get("desc") or data.get("description") or []
         description = "<br/>".join(desc) if isinstance(desc, list) else desc or ""
         type = data.get('index')
+        api_index = data.get('api_index')
         hit_die = data.get('hit_die')
 
         return {
             "name": name,
+            "api_index": api_index,
             "description": description,
             "type": type,
             "hit_die": hit_die,

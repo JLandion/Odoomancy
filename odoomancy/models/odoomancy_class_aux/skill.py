@@ -25,6 +25,7 @@ class OdoomancySkill(models.Model):
         ("stealth", "Stealth"),
         ("survival", "Survival"),
     ], string="Skill")
+    api_index = fields.Char(string="API Index")
     description = fields.Text(required=True)
     ability_score_ids = fields.Many2one("odoomancy.ability.scores", string="Ability Score")
 

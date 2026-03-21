@@ -9,6 +9,7 @@ class OdoomancyAbilityScores(models.Model):
         ("con", "CON"), ("int", "INT"),
         ("wis", "WIS"), ("cha", "CHA"),
     ], required=True)
+    api_index = fields.Char(string="API Index")
     description = fields.Text(string = "Description", required=True)
     skill_id = fields.One2many(
         "odoomancy.skill",

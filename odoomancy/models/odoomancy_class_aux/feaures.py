@@ -11,4 +11,5 @@ class OdoomancyFeatures(models.Model):
     prerequisites = fields.Json(string="Prerequisites")
     description = fields.Text(string="Description")
     expertise_options = fields.Many2many('odoomancy.proficience', string="Expertise (features)")
+    choose_expertise_options = fields.Integer(string="Choose Expertise Options")
     invocations = fields.Json(string="Invocations")
