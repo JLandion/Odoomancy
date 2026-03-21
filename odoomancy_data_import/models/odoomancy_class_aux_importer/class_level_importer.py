@@ -1,5 +1,5 @@
 from odoo import models
-from ..services.dnd_api_service import DndApiService
+from ...services.dnd_api_service import DndApiService
 
 
 class OdoomancyClassLevelImporter(models.TransientModel):
@@ -33,7 +33,10 @@ class OdoomancyClassLevelImporter(models.TransientModel):
             prof_bonus = data.get("prof_bonus")
             # features = data.get("features")
             class_specific = data.get("class_specific")
-            class_ = self.env['odoomancy.class'].search([('type', '=', data.get('index'))], limit=1)
+            class_ = None
+            if "class" in data and "index" in data.get("skills"):
+                class_ = data.get("skills").get("index")
+                class_ = self.env['odoomancy.skills'].search([('name', '=', class_)], limit=1).id
 
             res.append({
                 'api_index': api_index,

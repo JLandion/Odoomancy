@@ -1,5 +1,4 @@
 from . import odoomancy_class
-from . import ability_score
 from . import campaign
 from . import campaign_log
 from . import character
