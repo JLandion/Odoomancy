@@ -14,3 +14,5 @@ from . import monster
 from . import odoomancy_class
 from . import race
 from . import spell
+from . import res_users
+from . import ir_http
