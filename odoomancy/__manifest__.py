@@ -22,6 +22,7 @@ A different way to play D&D for and by Odoomancers
         'views/class_views.xml',
         'views/class_aux_views.xml',
         'views/menu.xml',
+        'views/res_users_views.xml'
     ],
     'assets': {
         'web.assets_backend': [
