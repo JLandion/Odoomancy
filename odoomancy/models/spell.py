@@ -6,9 +6,9 @@ class OdoomancySpellSlot(models.Model):
     _description = "Spell Slot"
     _order = "level"
 
-    name = fields.Char(required=True)
     level = fields.Integer(required=True)
     value = fields.Char(required=True)
+    spell_id = fields.Many2one("odoomancy.spell", ondelete="cascade")
     type = fields.Selection([
         ("damage", "Damage"),
         ("heal", "Heal"),
@@ -56,19 +56,15 @@ class OdoomancySpell(models.Model):
         ("other", "Other"),
     ])
 
-    damage_at_slot_ids = fields.Many2many(
+    damage_at_slot_ids = fields.One2many(
         "odoomancy.spell.slot",
-        relation="odoomancy_spell_damage_slot_rel",
-        column1="spell_id",
-        column2="slot_id",
+        "spell_id",
         domain=[('type', '=', 'damage')]
     )
 
-    heal_at_slot_ids = fields.Many2many(
+    heal_at_slot_ids = fields.One2many(
         "odoomancy.spell.slot",
-        relation="odoomancy_spell_heal_slot_rel",
-        column1="spell_id",
-        column2="slot_id",
+        "spell_id",
         domain=[('type', '=', 'heal')]
     )
 
