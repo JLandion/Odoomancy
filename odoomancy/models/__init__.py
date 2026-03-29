@@ -12,5 +12,6 @@ from . import magic_school
 from . import monster
 from . import race
 from . import spell
-
+from . import traits
+from . import traits
 from . import odoomancy_class_aux

@@ -14,7 +14,8 @@ class OdoomancyGlobalImporter(models.TransientModel):
         ('odoomancy.skills.importer', 'Skills'),
         ('odoomancy.ability.scores.importer', 'Ability Scores'),
         ('odoomancy.features.importer', 'Features'),
-        ('odoomancy.proficience.importer', 'Proficiencies')
+        ('odoomancy.proficience.importer', 'Proficiencies'),
+        ('odoomancy.traits.importer', 'Traits'),
     ], string="Import", required=True)
 
     count_classes = fields.Integer("Classes", compute="compute_fields")
@@ -26,6 +27,7 @@ class OdoomancyGlobalImporter(models.TransientModel):
     count_ability_scores = fields.Integer("Ability Scores", compute="compute_fields")
     count_features = fields.Integer("Features", compute="compute_fields")
     count_proficience = fields.Integer("Proficiencies", compute="compute_fields")
+    # count_ = fields.Integer("", compute="compute_fields")
     # count_ = fields.Integer("", compute="compute_fields")
 
     def compute_fields(self):
