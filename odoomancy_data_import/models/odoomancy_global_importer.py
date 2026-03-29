@@ -27,7 +27,7 @@ class OdoomancyGlobalImporter(models.TransientModel):
     count_ability_scores = fields.Integer("Ability Scores", compute="compute_fields")
     count_features = fields.Integer("Features", compute="compute_fields")
     count_proficience = fields.Integer("Proficiencies", compute="compute_fields")
-    # count_ = fields.Integer("", compute="compute_fields")
+    count_traits = fields.Integer("Traits", compute="compute_fields")
     # count_ = fields.Integer("", compute="compute_fields")
 
     def compute_fields(self):
@@ -40,4 +40,5 @@ class OdoomancyGlobalImporter(models.TransientModel):
         self.count_ability_scores = self.env['odoomancy.ability.scores'].search_count([])
         self.count_features = self.env['odoomancy.features'].search_count([])
         self.count_proficience = self.env['odoomancy.proficience'].search_count([])
+        self.count_traits = self.env['odoomancy.traits'].search_count([])
         #self.count_ = self.env['odoomancy.'].search_count([])

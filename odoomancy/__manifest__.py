@@ -20,6 +20,7 @@ A different way to play D&D for and by Odoomancers
         'views/menu.xml',
         'views/class_views.xml',
         'views/class_aux_views.xml',
+        'views/traits_views.xml',
     ],
     'installable': True,
     'application': True,

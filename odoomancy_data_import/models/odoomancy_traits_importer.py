@@ -26,19 +26,19 @@ class OdoomancyTraitsImporter(models.Model):
         description = "\n".join(desc) if isinstance(desc, list) else desc or None
 
         races = []
-        if "races" in data:
-            races.append([r.get('name') for r in data.get("races")])
-        races = self.env['odoomancy.race'].search([('name', 'in', races)])
+        if "races" in data and len(data.get('races')) > 0:
+            races = [r.get('name') for r in data.get("races")]
+            races = self.env['odoomancy.race'].search([('name', 'in', races)])
 
         subraces = []
-        if "subraces" in data:
-            subraces.append([r.get('name') for r in data.get("subraces")])
-        subraces = self.env['odoomancy.subrace'].search([('name', 'in', races)])
+        if "subraces" in data and len(data.get('subraces')) > 0:
+            subraces = [r.get('name') for r in data.get("subraces")]
+            subraces = self.env['odoomancy.subrace'].search([('name', 'in', subraces)])
 
         proficiencies = []
-        if "proficiencies" in data:
-            proficiencies.append([r.get('name') for r in data.get("proficiencies")])
-        proficiencies = self.env['odoomancy.proficience'].search([('name', 'in', races)])
+        if "proficiencies" in data and len(data.get('proficiencies')) > 0:
+            proficiencies = [r.get('name') for r in data.get("proficiencies")]
+            proficiencies = self.env['odoomancy.proficience'].search([('name', 'in', proficiencies)])
 
         return {
             "name": name,

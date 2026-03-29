@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ===================== LIST VIEW ===================== -->
+    <record id="view_odoomancy_traits_list" model="ir.ui.view">
+        <field name="name">odoomancy.traits.list</field>
+        <field name="model">odoomancy.traits</field>
+        <field name="arch" type="xml">
+            <list string="Traits">
+                <field name="name"/>
+                <field name="api_index"/>
+                <field name="races" widget="many2many_tags"/>
+                <field name="subraces" widget="many2many_tags"/>
+                <field name="proficiencies" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ===================== FORM VIEW ===================== -->
+    <record id="view_odoomancy_traits_form" model="ir.ui.view">
+        <field name="name">odoomancy.traits.form</field>
+        <field name="model">odoomancy.traits</field>
+        <field name="arch" type="xml">
+            <form string="Trait">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Trait name..."/>
+                        </h1>
+                        <h2>
+                            <field name="api_index" placeholder="API Index (e.g. darkvision)"/>
+                        </h2>
+                    </div>
+
+                    <group>
+                        <group string="Races &amp; Subraces">
+                            <field name="races"
+                                   widget="many2many_tags"
+                                   options="{'color_field': 'color'}"/>
+                            <field name="subraces"
+                                   widget="many2many_tags"
+                                   options="{'color_field': 'color'}"/>
+                        </group>
+                        <group string="Proficiencies">
+                            <field name="proficiencies"
+                                   widget="many2many_tags"
+                                   options="{'color_field': 'color'}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"
+                                   placeholder="Describe the trait effect and lore..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_odoomancy_traits" model="ir.actions.act_window">
+        <field name="name">Traits</field>
+        <field name="res_model">odoomancy.traits</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No traits found. Create your first trait!
+            </p>
+            <p>
+                Traits represent special features granted to characters by their race or subrace,
+                such as Darkvision, Breath Weapons, or Natural Armor.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_odoomancy_traits"
+        name="Traits"
+        action="action_odoomancy_traits"
+        parent="menu_odoomancy_class_root"
+        sequence="70"/>
+</odoo>
