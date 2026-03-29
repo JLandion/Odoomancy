@@ -23,4 +23,3 @@ odoomancy.access_odoomancy_class_level,access_odoomancy_class_level,odoomancy.mo
 odoomancy.access_odoomancy_features,access_odoomancy_features,odoomancy.model_odoomancy_features,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_proficience,access_odoomancy_proficience,odoomancy.model_odoomancy_proficience,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_skill,access_odoomancy_skill,odoomancy.model_odoomancy_skill,base.group_user,1,1,1,1
-odoomancy.access_odoomancy_ability_scores,access_odoomancy_ability_scores,odoomancy.model_odoomancy_ability_scores,base.group_user,1,1,1,1
