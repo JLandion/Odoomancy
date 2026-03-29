@@ -17,6 +17,8 @@ A different way to play D&D for and by Odoomancers
         'views/monster_views.xml',
         'views/feat_views.xml',
         'views/spell_views.xml',
+        'views/class_views.xml',
+        'views/class_aux_views.xml',
         'views/menu.xml',
     ],
     'installable': True,

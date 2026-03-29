@@ -48,7 +48,7 @@ class OdoomancySpell(models.Model):
 
     damage_type_id = fields.Many2one("odoomancy.damage.type")
 
-    dc_type = fields.Many2one("odoomancy.ability.score")
+    dc_type = fields.Many2one("odoomancy.ability.scores")
 
     dc_success = fields.Selection([
         ("none", "None"),

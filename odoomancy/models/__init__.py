@@ -1,5 +1,4 @@
-from . import odoomancy_class_aux
-from . import ability_score
+from . import odoomancy_class
 from . import campaign
 from . import campaign_log
 from . import character
@@ -11,6 +10,7 @@ from . import equipment_category
 from . import feat
 from . import magic_school
 from . import monster
-from . import odoomancy_class
 from . import race
 from . import spell
+
+from . import odoomancy_class_aux

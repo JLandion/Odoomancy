@@ -138,7 +138,7 @@ class OdoomancyImporterMixin(models.AbstractModel):
                             record.write(vals)
                 else:
                     with env.cr.savepoint():
-                        model.create([vals])
+                        model.create(vals)
 
                 progress_wizard.write({
                     "progress": int((i + 1) / total * 100),
