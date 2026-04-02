@@ -12,5 +12,7 @@ from . import magic_school
 from . import monster
 from . import race
 from . import spell
+from . import res_users
+from . import ir_http
 
 from . import odoomancy_class_aux

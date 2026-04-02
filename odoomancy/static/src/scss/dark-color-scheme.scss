@@ -1,0 +1,506 @@
+// ============================================================
+// TEMA OSCURO
+// ============================================================
+body.odoomancy-dark {
+
+    // --- Paleta — más clara para mejor contraste ---
+    --rpg-bg-base:        #1c1710;
+    --rpg-bg-surface:     #27200f;
+    --rpg-bg-card:        #322a16;
+    --rpg-bg-input:       #3a3018;
+    --rpg-border:         #5a4a28;
+    --rpg-border-gold:    #c9a84c;
+    --rpg-gold:           #e0b84e;
+    --rpg-gold-light:     #f0d07a;
+    --rpg-text:           #e8d8b0;
+    --rpg-text-muted:     #a89870;
+    --rpg-text-heading:   #e0b84e;
+    --rpg-shadow:         0 4px 24px rgba(0,0,0,0.6);
+
+    // Sobreescribir variables nativas de Odoo
+    --o-webclient-color-scheme: dark;
+    --o-body-bg: #1c1710;
+    --o-navbar-color: #27200f;
+
+    // Bootstrap popover vars
+    --bs-popover-bg: #27200f;
+    --bs-popover-body-color: #e8d8b0;
+    --bs-popover-header-color: #e0b84e;
+    --bs-popover-header-bg: #322a16;
+    --bs-popover-border-color: #c9a84c;
+
+    // --- Base ---
+    background-color: var(--rpg-bg-base) !important;
+    color: var(--rpg-text) !important;
+
+    // --- Navbar ---
+    .o_main_navbar, .o_navbar, header.o_navbar {
+        background-color: var(--rpg-bg-surface) !important;
+        border-bottom: 1px solid var(--rpg-border-gold) !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.6) !important;
+
+        .o_menu_brand {
+            color: var(--rpg-gold) !important;
+            font-weight: 700 !important;
+            letter-spacing: 2px !important;
+        }
+
+        .o-dropdown-item,
+        .dropdown-item,
+        .o-navigable,
+        .o_nav_entry,
+        .o_menu_sections > li > a,
+        .o_menu_sections .o_nav_entry {
+            color: var(--rpg-text) !important;
+            background-color: transparent !important;
+
+            &:hover, &:focus, &.active, &.o_active {
+                color: var(--rpg-gold) !important;
+                background-color: var(--rpg-bg-card) !important;
+            }
+        }
+
+        .o_icon_button, .o_menu_toggle {
+            color: var(--rpg-text) !important;
+            svg { fill: var(--rpg-text) !important; color: var(--rpg-text) !important; }
+            &:hover {
+                color: var(--rpg-gold) !important;
+                svg { fill: var(--rpg-gold) !important; }
+            }
+        }
+
+        .o_user_menu .o_dropdown_title,
+        .o_user_menu_account { color: var(--rpg-text) !important; }
+
+        .o_dropdown_menu, .dropdown-menu {
+            background-color: var(--rpg-bg-surface) !important;
+            border: 1px solid var(--rpg-border-gold) !important;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.7) !important;
+
+            .o-dropdown-item,
+            .dropdown-item,
+            .o-navigable,
+            a {
+                color: var(--rpg-text) !important;
+                background-color: transparent !important;
+
+                &:hover, &:focus {
+                    background-color: var(--rpg-bg-card) !important;
+                    color: var(--rpg-gold) !important;
+                }
+            }
+
+            .dropdown-divider { border-color: var(--rpg-border) !important; }
+        }
+    }
+
+    // --- Popovers ---
+    .popover {
+        background-color: var(--rpg-bg-surface) !important;
+        border: 1px solid var(--rpg-border-gold) !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.8) !important;
+        color: var(--rpg-text) !important;
+
+        .popover-header {
+            background-color: var(--rpg-bg-card) !important;
+            border-bottom: 1px solid var(--rpg-border-gold) !important;
+            color: var(--rpg-gold) !important;
+        }
+
+        .popover-body {
+            background-color: var(--rpg-bg-surface) !important;
+            color: var(--rpg-text) !important;
+
+            p, span, div, li, a { color: var(--rpg-text) !important; }
+        }
+
+        .dropdown-item, .o_dropdown_title{
+            color: var(--rpg-text) !important;
+        }
+
+        .popover-arrow::before { border-color: var(--rpg-border-gold) transparent !important; }
+        .popover-arrow::after  { border-color: var(--rpg-bg-surface) transparent !important; }
+    }
+
+    // --- Tooltips ---
+    .tooltip .tooltip-inner {
+        background-color: var(--rpg-bg-card) !important;
+        color: var(--rpg-text) !important;
+        border: 1px solid var(--rpg-border) !important;
+    }
+
+    // --- Control panel ---
+    .o_control_panel {
+        background-color: var(--rpg-bg-base) !important;
+        border-bottom: 1px solid var(--rpg-border) !important;
+        box-shadow: none !important;
+
+        .o_breadcrumb, .breadcrumb {
+            .o_breadcrumb_back, .breadcrumb-item a, .breadcrumb-item.active {
+                color: var(--rpg-gold) !important;
+            }
+            .breadcrumb-item + .breadcrumb-item::before {
+                color: var(--rpg-text-muted) !important;
+            }
+        }
+
+        .o_control_panel_actions,
+        .o_control_panel_breadcrumbs {
+            .btn {
+                color: var(--rpg-text) !important;
+                border-color: var(--rpg-border) !important;
+                background: transparent !important;
+
+                &:hover {
+                    color: var(--rpg-gold) !important;
+                    border-color: var(--rpg-gold) !important;
+                    background: rgba(201,168,76,0.08) !important;
+                }
+
+                &.btn-primary {
+                    background-color: var(--rpg-gold) !important;
+                    border-color: var(--rpg-gold) !important;
+                    color: #1c1710 !important;
+                    &:hover { background-color: var(--rpg-gold-light) !important; }
+                }
+            }
+
+            .o_searchview {
+                background-color: var(--rpg-bg-input) !important;
+                border-color: var(--rpg-border) !important;
+                color: var(--rpg-text) !important;
+
+                .o_searchview_input {
+                    color: var(--rpg-text) !important;
+                    &::placeholder { color: var(--rpg-text-muted) !important; }
+                }
+
+                .o_searchview_facet {
+                    background-color: var(--rpg-bg-card) !important;
+                    border-color: var(--rpg-border-gold) !important;
+                    color: var(--rpg-gold) !important;
+                }
+            }
+        }
+
+        .o_pager {
+            color: var(--rpg-text) !important;
+            .o_pager_value, .o_pager_limit { color: var(--rpg-text) !important; }
+            button {
+                color: var(--rpg-text) !important;
+                &:hover { color: var(--rpg-gold) !important; }
+            }
+        }
+    }
+
+    // --- Sidebar / Menú lateral ---
+    .o_home_menu, .o_app_icon_menu {
+        background-color: var(--rpg-bg-base) !important;
+    }
+
+    .o_menu_sections {
+        background-color: var(--rpg-bg-surface) !important;
+        border-right: 1px solid var(--rpg-border) !important;
+    }
+
+    // --- Contenido principal ---
+    .o_action_manager,
+    .o_content,
+    .o_view_controller {
+        background-color: var(--rpg-bg-base) !important;
+    }
+
+    // --- Vistas form ---
+    .o_form_view {
+        background-color: var(--rpg-bg-base) !important;
+
+        .o_form_sheet_bg { background-color: var(--rpg-bg-base) !important; }
+
+        .o_form_sheet {
+            background-color: var(--rpg-bg-surface) !important;
+            border: 1px solid var(--rpg-border-gold) !important;
+            box-shadow: var(--rpg-shadow) !important;
+            border-radius: 4px !important;
+            color: var(--rpg-text) !important;
+        }
+
+        .o_group {
+            background-color: transparent !important;
+
+            .o_wrap_label label, .o_form_label {
+                color: var(--rpg-text-muted) !important;
+                font-size: 0.75rem !important;
+                letter-spacing: 1px !important;
+                text-transform: uppercase !important;
+            }
+
+            // Valores de los campos
+            .o_field_widget {
+                color: var(--rpg-text) !important;
+            }
+        }
+
+        .oe_title h1, .oe_title h2 {
+            color: var(--rpg-gold) !important;
+            letter-spacing: 2px !important;
+            text-shadow: 0 0 20px rgba(224,184,78,0.3) !important;
+        }
+
+        .o_statusbar_status button {
+            color: var(--rpg-text-muted) !important;
+            border-color: var(--rpg-border) !important;
+            background: transparent !important;
+            &.o_field_statusbar_btn_active {
+                color: var(--rpg-gold) !important;
+                border-color: var(--rpg-gold) !important;
+            }
+        }
+
+        // --- Notebook dentro del form ---
+        .o_notebook {
+            background-color: var(--rpg-bg-surface) !important;
+
+            // Barra de tabs
+            .nav-tabs {
+                background-color: var(--rpg-bg-surface) !important;
+                border-bottom: 1px solid var(--rpg-border-gold) !important;
+
+                .nav-item { background-color: transparent !important; }
+
+                .nav-link {
+                    color: var(--rpg-text-muted) !important;
+                    font-size: 0.75rem !important;
+                    letter-spacing: 1px !important;
+                    border: none !important;
+                    background: transparent !important;
+
+                    &.active {
+                        color: var(--rpg-gold) !important;
+                        border-bottom: 2px solid var(--rpg-gold) !important;
+                        background: transparent !important;
+                    }
+
+                    &:hover { color: var(--rpg-gold) !important; }
+                }
+            }
+
+            // Contenido de cada page
+            .tab-content,
+            .o_notebook_content,
+            .tab-pane {
+                background-color: var(--rpg-bg-surface) !important;
+                color: var(--rpg-text) !important;
+            }
+        }
+
+        .o_chatter {
+            background-color: var(--rpg-bg-surface) !important;
+            border-left: 1px solid var(--rpg-border) !important;
+
+            .o_mail_thread { background-color: transparent !important; }
+
+            .o_message {
+                background-color: var(--rpg-bg-card) !important;
+                border: 1px solid var(--rpg-border) !important;
+                color: var(--rpg-text) !important;
+            }
+        }
+    }
+
+    // --- Inputs y fields ---
+    .o_field_widget input,
+    .o_field_widget textarea,
+    .o_field_widget select,
+    .o_input {
+        background-color: var(--rpg-bg-input) !important;
+        color: var(--rpg-text) !important;
+        border-color: var(--rpg-border) !important;
+        border-radius: 2px !important;
+
+        &:focus {
+            border-color: var(--rpg-gold) !important;
+            box-shadow: 0 0 0 2px rgba(201,168,76,0.2) !important;
+            outline: none !important;
+        }
+
+        &::placeholder { color: var(--rpg-text-muted) !important; }
+    }
+
+    .ui-autocomplete, .o_dropdown {
+        background-color: var(--rpg-bg-surface) !important;
+        border: 1px solid var(--rpg-border-gold) !important;
+
+        .ui-menu-item,
+        .o-dropdown-item,
+        .o_dropdown_item,
+        .o-navigable {
+            color: var(--rpg-text) !important;
+            background-color: transparent !important;
+
+            &:hover, &.ui-state-focus {
+                background-color: var(--rpg-bg-card) !important;
+                color: var(--rpg-gold) !important;
+            }
+        }
+    }
+
+    // --- Tablas ---
+    .o_list_view {
+        background-color: var(--rpg-bg-surface) !important;
+        border: 1px solid var(--rpg-border) !important;
+
+        thead th {
+            background-color: var(--rpg-bg-card) !important;
+            color: var(--rpg-gold) !important;
+            font-size: 0.7rem !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+            border-bottom: 1px solid var(--rpg-border-gold) !important;
+            border-color: var(--rpg-border) !important;
+        }
+
+        tbody tr {
+            background-color: var(--rpg-bg-surface) !important;
+            border-bottom: 1px solid var(--rpg-border) !important;
+
+            td {
+                background-color: var(--rpg-bg-surface) !important;
+                color: var(--rpg-text) !important;
+                border-color: var(--rpg-border) !important;
+            }
+
+            &:hover td {
+                background-color: var(--rpg-bg-card) !important;
+                color: var(--rpg-text) !important;
+            }
+
+            &.o_data_row_selected td {
+                background-color: rgba(201,168,76,0.12) !important;
+            }
+        }
+
+        tfoot td {
+            background-color: var(--rpg-bg-card) !important;
+            color: var(--rpg-text-muted) !important;
+            border-top: 1px solid var(--rpg-border-gold) !important;
+            border-color: var(--rpg-border) !important;
+        }
+    }
+
+    // --- Kanban ---
+    .o_kanban_view { background-color: var(--rpg-bg-base) !important; }
+
+    .o_kanban_record {
+        background-color: var(--rpg-bg-card) !important;
+        border: 1px solid var(--rpg-border) !important;
+        box-shadow: var(--rpg-shadow) !important;
+        color: var(--rpg-text) !important;
+
+        &:hover {
+            border-color: var(--rpg-border-gold) !important;
+            box-shadow: 0 4px 20px rgba(201,168,76,0.2) !important;
+        }
+    }
+
+    .o_kanban_group {
+        background-color: var(--rpg-bg-surface) !important;
+
+        .o_kanban_header {
+            color: var(--rpg-gold) !important;
+            border-bottom: 1px solid var(--rpg-border-gold) !important;
+        }
+    }
+
+    // --- Botones globales ---
+    .btn-primary {
+        background-color: var(--rpg-border-gold) !important;
+        border-color: var(--rpg-gold) !important;
+        color: #1c1710 !important;
+        font-weight: 600 !important;
+        letter-spacing: 1px !important;
+
+        &:hover {
+            background-color: var(--rpg-gold-light) !important;
+            border-color: var(--rpg-gold-light) !important;
+        }
+    }
+
+    .btn-secondary {
+        background-color: transparent !important;
+        border-color: var(--rpg-border) !important;
+        color: var(--rpg-text) !important;
+
+        &:hover {
+            border-color: var(--rpg-gold) !important;
+            color: var(--rpg-gold) !important;
+        }
+    }
+
+    .btn-link {
+        color: var(--rpg-gold) !important;
+        &:hover { color: var(--rpg-gold-light) !important; }
+    }
+
+    // --- Cards ---
+    .card {
+        background-color: var(--rpg-bg-card) !important;
+        border: 1px solid var(--rpg-border) !important;
+        color: var(--rpg-text) !important;
+
+        .card-header {
+            background-color: var(--rpg-bg-surface) !important;
+            border-bottom: 1px solid var(--rpg-border-gold) !important;
+            color: var(--rpg-gold) !important;
+        }
+
+        .card-body { color: var(--rpg-text) !important; }
+    }
+
+    // --- Modal / Dialog ---
+    .modal-content, .o_dialog {
+        background-color: var(--rpg-bg-surface) !important;
+        border: 1px solid var(--rpg-border-gold) !important;
+        color: var(--rpg-text) !important;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.9) !important;
+
+        .modal-header, .o_dialog_header {
+            background-color: var(--rpg-bg-card) !important;
+            border-bottom: 1px solid var(--rpg-border-gold) !important;
+
+            .modal-title, .o_dialog_title { color: var(--rpg-gold) !important; }
+            .btn-close { filter: invert(1) sepia(1) saturate(2) hue-rotate(10deg); }
+        }
+
+        .modal-footer, .o_dialog_footer {
+            background-color: var(--rpg-bg-card) !important;
+            border-top: 1px solid var(--rpg-border) !important;
+        }
+    }
+
+    .modal-backdrop { background-color: rgba(0,0,0,0.85) !important; }
+
+    // --- Breadcrumb ---
+    .o_breadcrumb .o_breadcrumb_back,
+    .o_breadcrumb .active { color: var(--rpg-gold) !important; }
+
+    // --- Badges ---
+    .badge {
+        background-color: var(--rpg-bg-card) !important;
+        border: 1px solid var(--rpg-border-gold) !important;
+        color: var(--rpg-gold) !important;
+    }
+
+    // --- Alerts ---
+    .alert-info {
+        background-color: rgba(201,168,76,0.1) !important;
+        border-color: var(--rpg-border-gold) !important;
+        color: var(--rpg-text) !important;
+    }
+
+    hr { border-color: var(--rpg-border) !important; }
+
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--rpg-border-gold) var(--rpg-bg-base);
+    }
+}

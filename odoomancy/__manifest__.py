@@ -7,6 +7,7 @@
     'description': """
 A different way to play D&D for and by Odoomancers
 """,
+    'depends':['base','web'],
     'data': [
         'security/ir.model.access.csv',
         'views/campaign_views.xml',
@@ -20,7 +21,15 @@ A different way to play D&D for and by Odoomancers
         'views/class_views.xml',
         'views/class_aux_views.xml',
         'views/menu.xml',
+        'views/res_users_views.xml'
     ],
+    'assets': {
+        'web.assets_backend': [
+            'odoomancy/static/src/js/color_scheme.js',
+            'odoomancy/static/src/scss/dark-color-scheme.scss',
+            'odoomancy/static/src/scss/light-color-scheme.scss',
+        ],
+    },
     'installable': True,
     'application': True,
     'author': 'Odoomancers',
