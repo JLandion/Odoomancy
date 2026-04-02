@@ -6,4 +6,3 @@ from . import spells_importer
 from . import equipment_importer
 from . import odoomancy_traits_importer
 from . import odoomancy_class_aux_importer
-from . import odoomancy_traits_importer

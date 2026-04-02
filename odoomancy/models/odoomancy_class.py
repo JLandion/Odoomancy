@@ -19,7 +19,7 @@ class OdoomancyClass(models.Model):
 
     hit_die = fields.Integer(string="Hit Die", required=True)
 
-    proficiencie_ids = fields.Many2many(
+    proficience_ids = fields.Many2many(
         "odoomancy.proficience",
         "class_proficience_rel",
         "class_id",
