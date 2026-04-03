@@ -1,33 +1,99 @@
 <odoo>
     <menuitem id="menu_odoomancy_root" name="odoomancy"/>
 
-    <menuitem id="menu_odoomancy_campaign"
-              name="Campaigns"
-              parent="menu_odoomancy_root"
-              sequence="1"
-              action="action_odoomancy_campaign"/>
+    <menuitem
+          id="menu_odoomancy_campaign"
+          name="Campaigns"
+          parent="menu_odoomancy_root"
+          sequence="1"
+          action="action_odoomancy_campaign"
+    />
 
-    <menuitem id="menu_odoomancy_character"
-              name="Characters"
-              parent="menu_odoomancy_root"
-              sequence="2"
-              action="action_odoomancy_character"/>
+    <menuitem
+          id="menu_odoomancy_character"
+          name="Characters"
+          parent="menu_odoomancy_root"
+          sequence="2"
+          action="action_odoomancy_character"
+    />
 
-    <menuitem id="menu_odoomancy_spell"
-              name="Spells"
-              parent="menu_odoomancy_root"
-              sequence="3"
-              action="action_odoomancy_spell"/>
+    <menuitem
+        id="menu_odoomancy_spell"
+        name="Spells"
+        parent="menu_odoomancy_root"
+        sequence="3"
+        action="action_odoomancy_spell"
+    />
 
-    <menuitem id="menu_odoomancy_equipment"
-              name="Equipment"
-              parent="menu_odoomancy_root"
-              sequence="4"
-              action="action_odoomancy_equipment"/>
+    <menuitem
+        id="menu_odoomancy_equipment"
+        name="Equipment"
+        parent="menu_odoomancy_root"
+        sequence="4"
+        action="action_odoomancy_equipment"
+    />
 
-    <menuitem id="menu_odoomancy_monster"
-              name="Monsters"
-              parent="menu_odoomancy_root"
-              sequence="5"
-              action="action_odoomancy_monster"/>
+    <menuitem
+        id="menu_odoomancy_monster"
+        name="Monsters"
+        parent="menu_odoomancy_root"
+        sequence="5"
+        action="action_odoomancy_monster"
+    />
+
+    <menuitem
+        id="menu_odoomancy_class_root"
+        name="Classes"
+        parent="odoomancy.menu_odoomancy_root"
+        sequence="6"
+    />
+
+    <menuitem
+        id="menu_odoomancy_class"
+        name="Classes"
+        parent="menu_odoomancy_class_root"
+        action="action_odoomancy_class"
+        sequence="10"
+    />
+
+    <menuitem
+        id="menu_odoomancy_class_level"
+        name="Class Levels"
+        parent="menu_odoomancy_class_root"
+        action="action_odoomancy_class_level"
+        sequence="20"
+    />
+
+    <menuitem
+        id="menu_odoomancy_ability_scores"
+        name="Ability Scores"
+        parent="menu_odoomancy_class_root"
+        action="action_odoomancy_ability_scores"
+        sequence="30"
+    />
+
+    <menuitem
+        id="menu_odoomancy_features"
+        name="Features"
+        parent="menu_odoomancy_class_root"
+        action="action_odoomancy_features"
+        sequence="40"
+    />
+
+    <menuitem
+        id="menu_odoomancy_proficience"
+        name="Proficiencies"
+        parent="menu_odoomancy_class_root"
+        action="action_odoomancy_proficience"
+        sequence="50"
+    />
+
+    <menuitem
+        id="menu_odoomancy_skill"
+        name="Skills"
+        parent="menu_odoomancy_class_root"
+        action="action_odoomancy_skill"
+        sequence="60"
+    />
+
 </odoo>

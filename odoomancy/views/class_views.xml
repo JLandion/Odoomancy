@@ -71,7 +71,7 @@
                         </page>
                         <page string="Proficiencies">
                             <group>
-                                <field name="proficiencie_ids" widget="many2many_tags"/>
+                                <field name="proficience_ids" widget="many2many_tags"/>
                                 <field name="proficience_choice_ids" widget="many2many_tags"/>
                                 <field name="ability_scores" widget="many2many_tags"/>
                             </group>
@@ -153,28 +153,5 @@
         <field name="view_mode">list,form</field>
         <field name="context">{"group_by": ["class_id"]}</field>
     </record>
-
-    <menuitem
-        id="menu_odoomancy_class_root"
-        name="Classes"
-        parent="odoomancy.menu_odoomancy_root"
-        sequence="10"
-    />
-
-    <menuitem
-        id="menu_odoomancy_class"
-        name="Classes"
-        parent="menu_odoomancy_class_root"
-        action="action_odoomancy_class"
-        sequence="10"
-    />
-
-    <menuitem
-        id="menu_odoomancy_class_level"
-        name="Class Levels"
-        parent="menu_odoomancy_class_root"
-        action="action_odoomancy_class_level"
-        sequence="20"
-    />
 
 </odoo>
