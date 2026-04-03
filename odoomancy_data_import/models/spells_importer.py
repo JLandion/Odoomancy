@@ -71,14 +71,42 @@ class OdoomancySpellsImporter(models.TransientModel):
         #                 }])
         #             damage_type_id = damage_type_rec.id
 
+        # Slots
+        damage_at_slot = []
+        if 'damage' in data and 'damage_at_slot_level' in data.get('damage'):
+            das = data.get('damage').get('damage_at_slot_level') #das is a dict
+            for k,v in das.items():
+                damage_at_slot.append({
+                    'level': int(k),
+                    'value': v,
+                    'type': 'damage'
+                })
+
+        heal_at_slot = []
+        if 'heal_at_slot_level' in data:
+            has = data.get('heal_at_slot_level')
+            for k,v in has.items():
+                heal_at_slot.append({
+                    'level': int(k),
+                    'value': v,
+                    'type': 'heal'
+                })
+
+
         # Classes
+        # Classes
+        all_class_ids = self.env['odoomancy.class'].search([]).ids
+
         class_ids = []
         classes_data = data.get("classes", [])
         for cls in classes_data:
             cls_name = cls.get("index")
             if cls_name:
                 class_rec = self.env['odoomancy.class'].search([('type', '=', cls_name)], limit=1)
-                class_ids.append(class_rec.id)
+                if class_rec:
+                    class_ids.append(class_rec.id)
+
+        final_class_ids = class_ids if class_ids else all_class_ids
 
         # Subclasses
         # subclass_ids = []
@@ -102,11 +130,14 @@ class OdoomancySpellsImporter(models.TransientModel):
             "somatic": somatic,
             "material": material,
             "material_component": material_component,
+            "range": spell_range,
             #"area_of_effect_size": area_of_effect_size,
             #"area_of_effect_type": area_of_effect_type,
             "attack_type": attack_type,
             # "damage_type_id": damage_type_id if damage_type_id else None,
-            # "class_ids": [(6, 0, class_ids)],
+            "damage_at_slot_ids": [(0, 0, slot) for slot in damage_at_slot] if damage_at_slot else False,
+            "heal_at_slot_ids":   [(0, 0, slot) for slot in heal_at_slot]   if heal_at_slot   else False,
+            "class_ids": [(6, 0, final_class_ids)],
             # "subclass_ids": [(6, 0, subclass_ids)],
         }
 

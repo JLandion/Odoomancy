@@ -21,6 +21,7 @@
                 <field name="duration"/>
                 <field name="ritual"/>
                 <field name="concentration"/>
+                <field name="class_ids" widget="many2many_tags"/>
             </list>
         </field>
     </record>
@@ -31,7 +32,7 @@
         <field name="arch" type="xml">
             <form string="Spell">
                 <sheet>
-                    <group>
+                    <group colspan="3">
                         <group>
                             <field name="name"/>
                             <field name="level"/>
@@ -40,27 +41,35 @@
                             <field name="duration"/>
                             <field name="ritual"/>
                             <field name="concentration"/>
-                            <!--field name="verbal"/>
-                            <field name="somatic"/-->
-                            <field name="material"/>
-                            <!--field name="material_component"/>
-                            <field name="attack_type"/-->
-                            <field name="damage_type_id"/>
+                            <field name="verbal"/>
+                            <field name="somatic"/>
                         </group>
                         <group>
+                            <field name="material"/>
+                            <field name="material_component"/>
+                            <!--field name="attack_type"/-->
+                            <field name="damage_type_id"/>
                             <!--field name="area_of_effect_size"/>
                             <field name="area_of_effect_type"/-->
-                            <field name="class_ids"/>
+                        </group>
+                    </group>
+                    <group colspan="2">
+                        <field name="class_ids"/>
+                    </group>
+                    <group>
+                        <group>
                             <field name="damage_at_slot_ids" widget="one2many_list">
                                 <list editable="bottom">
                                     <field name="level"/>
-                                    <field name="value" string="damage"/>
+                                    <field name="value" string="Damage"/>
                                 </list>
                             </field>
+                        </group>
+                        <group>
                             <field name="heal_at_slot_ids" widget="one2many_list">
                                 <list editable="bottom">
                                     <field name="level"/>
-                                    <field name="value" string="dice"/>
+                                    <field name="value" string="Heal"/>
                                 </list>
                             </field>
                         </group>

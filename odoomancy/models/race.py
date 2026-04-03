@@ -7,3 +7,10 @@ class OdoomancyRace(models.Model):
 
     name = fields.Char(required=True)
     description = fields.Text()
+
+class OdoomancySubRace(models.Model):
+    _name = "odoomancy.subrace"
+    _description = "Race"
+
+    name = fields.Char(required=True)
+    description = fields.Text()
