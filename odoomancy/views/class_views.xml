@@ -8,9 +8,9 @@
         <field name="model">odoomancy.class</field>
         <field name="arch" type="xml">
             <list string="Classes">
-                <field name="name"/>
-                <field name="type"/>
-                <field name="hit_die"/>
+                <field name="name" />
+                <field name="type" />
+                <field name="hit_die" />
             </list>
         </field>
     </record>
@@ -20,19 +20,19 @@
         <field name="model">odoomancy.class</field>
         <field name="arch" type="xml">
             <kanban string="Classes">
-                <field name="name"/>
-                <field name="type"/>
-                <field name="hit_die"/>
+                <field name="name" />
+                <field name="type" />
+                <field name="hit_die" />
                 <templates>
                     <t t-name="card">
                         <div class="d-flex align-items-center gap-2 mb-1">
                             <strong class="fs-5">
-                                <field name="name"/>
+                                <field name="name" />
                             </strong>
-                            <field name="type" widget="badge"/>
                         </div>
                         <div class="text-muted">
-                            Hit Die: d<field name="hit_die"/>
+                            <i class="fa fa-heart me-1" aria-hidden="true"></i> Hit Die: <field
+                                name="hit_die" />
                         </div>
                     </t>
                 </templates>
@@ -48,45 +48,45 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" placeholder="Class name..."/>
+                            <field name="name" placeholder="Class name..." />
                         </h1>
                     </div>
                     <group>
                         <group string="Base Info">
-                            <field name="type"/>
-                            <field name="hit_die"/>
-                            <field name="api_index"/>
+                            <field name="type" />
+                            <field name="hit_die" />
+                            <field name="api_index" />
                         </group>
                     </group>
-                    <field name="description" placeholder="Description..."/>
+                    <field name="description" placeholder="Description..." />
                     <notebook>
                         <page string="Levels">
                             <field name="class_level_ids">
                                 <list>
-                                    <field name="level"/>
-                                    <field name="prof_bonus"/>
-                                    <field name="ability_score_bonuses"/>
+                                    <field name="level" />
+                                    <field name="prof_bonus" />
+                                    <field name="ability_score_bonuses" />
                                 </list>
                             </field>
                         </page>
                         <page string="Proficiencies">
                             <group>
-                                <field name="proficience_ids" widget="many2many_tags"/>
-                                <field name="proficience_choice_ids" widget="many2many_tags"/>
-                                <field name="ability_scores" widget="many2many_tags"/>
+                                <field name="proficience_ids" widget="many2many_tags" />
+                                <field name="proficience_choice_ids" widget="many2many_tags" />
+                                <field name="ability_scores" widget="many2many_tags" />
                             </group>
                         </page>
                         <page string="Equipment">
                             <group>
-                                <field name="equipment_starting" widget="many2many_tags"/>
-                                <field name="equipment_options" widget="many2many_tags"/>
+                                <field name="equipment_starting" widget="many2many_tags" />
+                                <field name="equipment_options" widget="many2many_tags" />
                             </group>
                         </page>
                         <page string="Spells">
                             <field name="spell_ids">
                                 <list>
-                                    <field name="name"/>
-                                    <field name="level"/>
+                                    <field name="name" />
+                                    <field name="level" />
                                 </list>
                             </field>
                         </page>
@@ -109,10 +109,10 @@
         <field name="model">odoomancy.class.level</field>
         <field name="arch" type="xml">
             <list string="Class Levels">
-                <field name="class_id"/>
-                <field name="level"/>
-                <field name="prof_bonus"/>
-                <field name="ability_score_bonuses"/>
+                <field name="class_id" />
+                <field name="level" />
+                <field name="prof_bonus" />
+                <field name="ability_score_bonuses" />
             </list>
         </field>
     </record>
@@ -125,22 +125,22 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="class_id"/> — Level <field name="level"/>
+                            <field name="class_id" /> — Level <field name="level" />
                         </h1>
                     </div>
                     <group>
                         <group string="Stats">
-                            <field name="level"/>
-                            <field name="prof_bonus"/>
-                            <field name="ability_score_bonuses"/>
-                            <field name="api_index"/>
+                            <field name="level" />
+                            <field name="prof_bonus" />
+                            <field name="ability_score_bonuses" />
+                            <field name="api_index" />
                         </group>
                     </group>
                     <group string="Features">
-                        <field name="features" nolabel="1"/>
+                        <field name="features" nolabel="1" />
                     </group>
                     <group string="Class Specific">
-                        <field name="class_specific" nolabel="1" widget="json"/>
+                        <field name="class_specific" nolabel="1" widget="json" />
                     </group>
                 </sheet>
             </form>

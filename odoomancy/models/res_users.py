@@ -5,6 +5,7 @@ class ResUsers(models.Model):
     _inherit = 'res.users'
 
     color_scheme = fields.Selection([
+        ('default', 'Odoo Default'),
         ('light', 'Light'),
         ('dark', 'Dark'),
     ], string="Theme", default='light')

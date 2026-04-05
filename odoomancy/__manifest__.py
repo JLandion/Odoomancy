@@ -20,12 +20,15 @@ A different way to play D&D for and by Odoomancers
         'views/spell_views.xml',
         'views/class_views.xml',
         'views/class_aux_views.xml',
+        'views/class_views.xml',
+        'views/class_aux_views.xml',
         'views/menu.xml',
         'views/res_users_views.xml'
     ],
     'assets': {
         'web.assets_backend': [
             'odoomancy/static/src/js/color_scheme.js',
+            'odoomancy/static/src/scss/color_scheme.scss',
             'odoomancy/static/src/scss/dark-color-scheme.scss',
             'odoomancy/static/src/scss/light-color-scheme.scss',
         ],

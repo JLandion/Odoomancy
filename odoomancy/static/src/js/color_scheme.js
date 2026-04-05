@@ -8,8 +8,14 @@ import { FormController } from "@web/views/form/form_controller";
 
 function applyTheme(scheme) {
     document.body.classList.remove("odoomancy-dark", "odoomancy-light");
-    document.body.classList.add(`odoomancy-${scheme || "light"}`);
-    cookie.set("color_scheme", scheme || "light");
+    // If scheme is missing or explicitly 'default', use Odoo core theme
+    if (!scheme || scheme === "default") {
+        cookie.delete("color_scheme");
+        return;
+    }
+    // For 'light' or 'dark', apply odoomancy classes and persist choice
+    document.body.classList.add(`odoomancy-${scheme}`);
+    cookie.set("color_scheme", scheme);
 }
 
 // Parchear el FormController para detectar cuando se guarda res.users
@@ -27,7 +33,8 @@ patch(FormController.prototype, {
 
 registry.category("services").add("odoomancy_color_scheme", {
     start() {
-        const scheme = session.color_scheme || cookie.get("color_scheme") || "light";
+        const stored = cookie.get("color_scheme");
+        const scheme = session.color_scheme || (stored ? stored : "default");
         applyTheme(scheme);
     },
 });
