@@ -108,12 +108,6 @@ class OdoomancySpellsImporter(models.TransientModel):
 
         final_class_ids = class_ids if class_ids else all_class_ids
 
-        # Subclasses
-        # subclass_ids = []
-        # subclasses_data = data.get("subclasses", [])
-        # for sub in subclasses_data:
-        #     sub_name = sub.get("name")
-
         return {
             "api_index": data.get("index"),
             "name": name,
@@ -138,7 +132,6 @@ class OdoomancySpellsImporter(models.TransientModel):
             "damage_at_slot_ids": [(0, 0, slot) for slot in damage_at_slot] if damage_at_slot else False,
             "heal_at_slot_ids":   [(0, 0, slot) for slot in heal_at_slot]   if heal_at_slot   else False,
             "class_ids": [(6, 0, final_class_ids)],
-            # "subclass_ids": [(6, 0, subclass_ids)],
         }
 
     def _get_external_key(self, ref, data):
