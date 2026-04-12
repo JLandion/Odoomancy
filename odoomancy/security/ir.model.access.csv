@@ -20,7 +20,6 @@ odoomancy.access_odoomancy_spell,access_odoomancy_spell,odoomancy.model_odoomanc
 odoomancy.access_odoomancy_spell_slot,access_odoomancy_spell_slot,odoomancy.model_odoomancy_spell_slot,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_traits, access_odoomancy_traits,odoomancy.model_odoomancy_traits,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_race,access_odoomancy_race,odoomancy.model_odoomancy_race,base.group_user,1,1,1,1
-odoomancy.access_odoomancy_subrace,access_odoomancy_subrace,odoomancy.model_odoomancy_subrace,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_ability_scores,access_odoomancy_ability_scores,odoomancy.model_odoomancy_ability_scores,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_class_level,access_odoomancy_class_level,odoomancy.model_odoomancy_class_level,base.group_user,1,1,1,1
 odoomancy.access_odoomancy_features,access_odoomancy_features,odoomancy.model_odoomancy_features,base.group_user,1,1,1,1
