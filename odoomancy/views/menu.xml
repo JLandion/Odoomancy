@@ -65,6 +65,13 @@
     />
 
     <menuitem
+        id="menu_odoomancy_traits"
+        name="Traits"
+        action="action_odoomancy_traits"
+        parent="menu_odoomancy_class_root"
+        sequence="70"/>
+
+    <menuitem
         id="menu_odoomancy_ability_scores"
         name="Ability Scores"
         parent="menu_odoomancy_class_root"

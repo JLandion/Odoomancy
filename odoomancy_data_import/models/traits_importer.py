@@ -30,11 +30,6 @@ class OdoomancyTraitsImporter(models.Model):
             races = [r.get('name') for r in data.get("races")]
             races = self.env['odoomancy.race'].search([('name', 'in', races)])
 
-        subraces = []
-        if "subraces" in data and len(data.get('subraces')) > 0:
-            subraces = [r.get('name') for r in data.get("subraces")]
-            subraces = self.env['odoomancy.subrace'].search([('name', 'in', subraces)])
-
         proficiencies = []
         if "proficiencies" in data and len(data.get('proficiencies')) > 0:
             proficiencies = [r.get('name') for r in data.get("proficiencies")]
@@ -45,7 +40,6 @@ class OdoomancyTraitsImporter(models.Model):
             "api_index": api_index,
             "description": description,
             "races": [(6, 0, races.ids)] if len(races) > 0 else False,
-            "subraces": [(6, 0, subraces.ids)] if len(subraces) > 0 else False,
             "proficiencies": [(6, 0, proficiencies.ids)] if len(proficiencies) > 0 else False,
         }
 

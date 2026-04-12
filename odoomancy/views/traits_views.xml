@@ -9,7 +9,6 @@
                 <field name="name"/>
                 <field name="api_index"/>
                 <field name="races" widget="many2many_tags"/>
-                <field name="subraces" widget="many2many_tags"/>
                 <field name="proficiencies" widget="many2many_tags"/>
             </list>
         </field>
@@ -31,21 +30,22 @@
                         </h2>
                     </div>
 
-                    <group>
-                        <group string="Races &amp; Subraces">
-                            <field name="races"
-                                   widget="many2many_tags"
-                                   options="{'color_field': 'color'}"/>
-                            <field name="subraces"
-                                   widget="many2many_tags"
-                                   options="{'color_field': 'color'}"/>
-                        </group>
-                        <group string="Proficiencies">
-                            <field name="proficiencies"
-                                   widget="many2many_tags"
-                                   options="{'color_field': 'color'}"/>
-                        </group>
-                    </group>
+<!-- TODO: check color fields are defined then uncomment-->
+<!--                    <group>-->
+<!--                        <group string="Races &amp; Subraces">-->
+<!--                            <field name="races"-->
+<!--                                   widget="many2many_tags"-->
+<!--                                   options="{'color_field': 'color'}"/>-->
+<!--                            <field name="subraces"-->
+<!--                                   widget="many2many_tags"-->
+<!--                                   options="{'color_field': 'color'}"/>-->
+<!--                        </group>-->
+<!--                        <group string="Proficiencies">-->
+<!--                            <field name="proficiencies"-->
+<!--                                   widget="many2many_tags"-->
+<!--                                   options="{'color_field': 'color'}"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
 
                     <notebook>
                         <page string="Description" name="description">
@@ -67,16 +67,10 @@
                 No traits found. Create your first trait!
             </p>
             <p>
-                Traits represent special features granted to characters by their race or subrace,
+                Traits represent special features granted to characters by their race
                 such as Darkvision, Breath Weapons, or Natural Armor.
             </p>
         </field>
     </record>
 
-    <menuitem
-        id="menu_odoomancy_traits"
-        name="Traits"
-        action="action_odoomancy_traits"
-        parent="menu_odoomancy_class_root"
-        sequence="70"/>
 </odoo>
